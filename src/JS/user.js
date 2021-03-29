@@ -38,11 +38,32 @@ auth.onAuthStateChanged(function(user) {
     }
 });
 */
+//orderByKey().equalTo("8r4aB2ePXSPhUVNUNGOWlFMCASG3").
+let crntUserID;
+/*
+firebase.database().ref(MainAdmin+"/OHatm0qKa2Rf3DFnAj1Vq64Fcn62/"+crntUserID+"/flag").on('value',(snapshot)=>{
+    let message="Locked";
+    //console.log(snapshot.val());
+    if(snapshot.val()==1)
+    message="Unlocked";
+
+    document.getElementById('lock-unlock').innerText="Your Screen is "+message;
+})
+*/
 
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         document.getElementById('current-user-info').innerHTML=auth.currentUser.email;
+        crntUserID=auth.currentUser.uid;
+        firebase.database().ref(MainAdmin+"/OHatm0qKa2Rf3DFnAj1Vq64Fcn62/"+crntUserID+"/flag").on('value',(snapshot)=>{
+            let message="Locked";
+            //console.log(snapshot.val());
+            if(snapshot.val()==1)
+            message="Unlocked";
+        
+            document.getElementById('lock-unlock').innerText="Your Screen is "+message;
+        }) 
         console.log(user.email);
     } else {
         window.location="login.html";
