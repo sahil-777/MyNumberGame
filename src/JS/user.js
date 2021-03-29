@@ -42,6 +42,7 @@ auth.onAuthStateChanged(function(user) {
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
+        document.getElementById('current-user-info').innerHTML=auth.currentUser.email;
         console.log(user.email);
     } else {
         window.location="login.html";
