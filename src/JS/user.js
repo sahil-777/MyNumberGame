@@ -2,7 +2,7 @@ const auth = firebase.auth();
 const db = firebase.database();
 const rootRef=db.ref();
 let MainAdmin='techmoAdmin';
-
+let StoreOwner = "OHatm0qKa2Rf3DFnAj1Vq64Fcn62";
 function logout(){
     firebase.auth().signOut().then(() => {
         console.log('Lougout Successfully!');
@@ -56,7 +56,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         document.getElementById('current-user-info').innerHTML=auth.currentUser.email;
         crntUserID=auth.currentUser.uid;
-        firebase.database().ref(MainAdmin+"/OHatm0qKa2Rf3DFnAj1Vq64Fcn62/"+crntUserID+"/flag").on('value',(snapshot)=>{
+        firebase.database().ref(MainAdmin+"/"+StoreOwner+"/"+crntUserID+"/flag").on('value',(snapshot)=>{
             let message="Locked";
             //console.log(snapshot.val());
             if(snapshot.val()==1)
