@@ -47,7 +47,7 @@ function lockUnlock(uid){
     flag=0;
     console.log("StoreAdmin=> ",auth.currentUser.uid);
     let storeOwner=auth.currentUser.uid;
-    rootRef.child(MainAdmin).child(storeOwner).child(uid).set({
+    rootRef.child(MainAdmin).child('Stores').child(storeOwner).child(uid).set({
         flag:flag
       }, (error) => {
         if (error) {
@@ -73,7 +73,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         let StoreOwner=user.uid;
-        rootRef.child(MainAdmin).child(StoreOwner).get().then(function(snapshot) {
+        console.log(StoreOwner);
+        rootRef.child(MainAdmin).child('Stores').child(StoreOwner).get().then(function(snapshot) {
             if (snapshot.exists()) {
             let allTheUsers="";
             snapshot.forEach((child) => {
@@ -87,6 +88,7 @@ firebase.auth().onAuthStateChanged(function(user) {
             document.getElementById('list-all-users').innerHTML=allTheUsers;
             }
             else {
+            document.getElementById('list-all-users').innerHTML="No Screen Present!";
             console.log("No data available");
             }
         }).catch(function(error) {
