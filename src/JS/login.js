@@ -1,7 +1,7 @@
 const auth = firebase.auth();
 const db = firebase.database();
 const rootRef=db.ref();
-let MainAdmin='techmoAdmin';
+let MainAdmin='Teqmo';
 function login(){ 
     let email=document.getElementById('person-email').value;
     let password=document.getElementById('person-password').value;
@@ -9,7 +9,7 @@ function login(){
     .then((userCredential) => {
         var user = userCredential.user;
         console.log(user.uid);
-        rootRef.child(MainAdmin).once("value")
+        rootRef.child(MainAdmin).child('Stores').once("value")
             .then(function(snapshot) {
                 let isStoreOwner = snapshot.child(user.uid).exists(); // true/false
                 //True: If uid exists in admin level i.e. person is admin/storeowner

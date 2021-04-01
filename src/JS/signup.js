@@ -1,7 +1,7 @@
 const auth = firebase.auth();
 const db = firebase.database();
 const rootRef=db.ref();
-let MainAdmin='techmoAdmin';
+let MainAdmin='Teqmo';
 //let StoreOwner = "OHatm0qKa2Rf3DFnAj1Vq64Fcn62";
 
 function signup(role){
@@ -33,4 +33,8 @@ function signup(role){
         document.getElementById('error-msg').innerHTML=errorMessage;
         console.log(errorCode, errorMessage); 
     });
+}
+
+document.getElementById('signup-as-user-toggle-btn').onclick=function (){
+    document.getElementById('signup-as-user-form').toggle();
 }
