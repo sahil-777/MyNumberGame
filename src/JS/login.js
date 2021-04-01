@@ -24,7 +24,6 @@ function login(){
                 document.getElementById('error-msg').innerHTML=errorMessage;
                 console.log(errorCode, errorMessage); 
             })
-        //window.location="index.html"; //After loggedIn successfully
     })
     .catch((error) => {
         let errorCode = error.code;
