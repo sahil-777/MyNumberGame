@@ -47,7 +47,7 @@ function lockUnlock(uid){
     flag=0;
     console.log("StoreAdmin=> ",auth.currentUser.uid);
     let storeOwner=auth.currentUser.uid;
-    rootRef.child(MainAdmin).child('Stores').child(storeOwner).child(uid).set({
+    rootRef.child(MainAdmin).child('Stores').child(storeOwner).child(uid).child('status').set({
         flag:flag
       }, (error) => {
         if (error) {
@@ -55,7 +55,7 @@ function lockUnlock(uid){
             let errorMessage = error.message;
             document.getElementById('error-msg').innerHTML=errorMessage;
             console.log(errorCode, errorMessage);
-        } else {
+        } else { 
           console.log("Sucessfully "+(flag==0?"Locked! ":"Unlocked! "+uid));
         }
       });
@@ -79,9 +79,9 @@ firebase.auth().onAuthStateChanged(function(user) {
             let allTheUsers="";
             snapshot.forEach((child) => {
                 if(child.key.length==28){
-                    console.log(child.key, child.val().flag);
-                    //console.log(child.val().flag);
-                    let lockUnlock=child.val().flag==1?"Lock":"Unlock";
+                    //console.log(child.key, child.val());
+                    //console.log(child.val().status.flag);
+                    let lockUnlock=child.val().status.flag==1?"Lock":"Unlock";
                     allTheUsers+=child.key+"</br><button id='"+child.key+"' onclick='lockUnlock(this.id)'>"+lockUnlock+"</button><br><br>";        
                 }
             });
