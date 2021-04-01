@@ -1,0 +1,24 @@
+{
+  "Teqmo" : {
+    "Stores" : {
+ 
+      "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+        "1" : 0,
+        "2" : 1,
+        "numbers" : {
+          "29-03-2021" : 5,
+          "30-03-2021": 11
+        } 
+      }
+    }, 
+    "Numbers": {
+      "30-03-2021": {
+        "OHatm0qKa2Rf3DFnAj1Vq64Fcn62": {
+          "1": {"time": "10-25-30", "numbers-array": "1,2,3,4..25"},
+          "2": {"time": "11-10-15", "numbers-array": "1,2,3,4..25"},
+          "11": {"time": "18-12-40","numbers-array": "1,2,3,4..25" }
+        }
+      }
+    }
+  }
+}

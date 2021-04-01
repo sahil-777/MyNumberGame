@@ -1,0 +1,47 @@
+{
+  "Teqmo" : {
+    "Stores" : {
+      "user-uid" : {
+        "screen1id" : 0,
+        "screen2id" : 1,
+        "numbers" : {
+          "date1": "count",
+          "date2": "count"
+        },
+        "details": {
+          "owner": "name",
+          "phone": "123",
+          "address": "abc",
+          "something": "else"
+        }
+      },
+      "bcGzXjMMvTYwd25oac4ZvT0axyZ2" : {
+        "1" : 0,
+        "2" : 1,
+        "numbers" : {
+          "29-03-2021" : 5,
+          "30-03-2021": 11
+        },
+        "details": {"something": "else"}
+      }
+    },
+    "Numbers": {
+      "date": {
+        "uid": {
+          "countNumber": {"time": "current-time", "numbers-array": "1,2,3,4..25"}
+        }
+      },
+      "30-03-2021": {
+        "bcGzXjMMvTYwd25oac4ZvT0axyZ2": {
+          "1": {"time": "10-25-30", "numbers-array": "1,2,3,4..25"},
+          "2": {"time": "11-10-15", "numbers-array": "1,2,3,4..25"},
+          "11": {"time": "18-12-40","numbers-array": "1,2,3,4..25" }
+        },
+        "same-other-uid": {
+          "1": {"time": "10-25-30", "numbers-array": "1,2,3,4..25"},
+          "2": {"time": "11-10-15", "numbers-array": "1,2,3,4..25"}
+        }
+      }
+    }
+  }
+}

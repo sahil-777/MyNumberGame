@@ -1,0 +1,30 @@
+{
+  "techmoAdmin" : {
+    "CcQWEbVj2cTXCAgqrQHAw6QIBgg1" : {
+      "KMh3uD5pJmVEro79wbI1JUrhOdF2" : {
+        "flag" : 0
+      },
+      "ZJ4cVjQw61dTShs0uYLFC0v2JbZ2" : {
+        "flag" : 1
+      },
+      "zzNumbers" : {
+        "27-03-2021" : {
+          "Array1" : "1,2,3,4,5",
+          "Array2" : "1,2,3,4,5"
+        },
+        "28-03-2021" : {
+          "Array1" : "1,2,3,4,5",
+          "Array2" : "1,2,3,4,5"
+        }
+      }
+    },
+    "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+      "8r4aB2ePXSPhUVNUNGOWlFMCASG3" : {
+        "flag" : 0
+      },
+      "tYPQPKcviQVj4k92CwrvLHAsulw1" : {
+        "flag" : 0
+      }
+    }
+  }
+}
