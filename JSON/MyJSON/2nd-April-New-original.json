@@ -28,11 +28,11 @@
           "02-04-2021" : 5
         },
         "screen1" : {
-          "1loggedinStatus" : 0,
+          "loggedinStatus" : 0,
           "lockUnlock" : 1
         },
         "screen2" : {
-          "1loggedinStatus" : 0,
+          "loggedinStatus" : 0,
           "lockUnlock" : 1
         }
       }
