@@ -1,0 +1,41 @@
+{
+  "Teqmo" : {
+    "Numbers" : {
+      "2021" : {
+        "04" : {
+          "02" : {
+            "1Morning" : {
+              "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+                "key" : {
+                  "numberArray" : "1,2,3,4,5",
+                  "time" : "22-24-05"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Stores" : {
+      "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+        "details" : {
+          "Address" : "Mumbai",
+          "Name" : "Sahil",
+          "PhoneNumber" : "987654321"
+        },
+        "numberCount" : {
+          "01-04-2021" : 5,
+          "02-04-2021" : 5
+        },
+        "screen1" : {
+          "1loggedinStatus" : 0,
+          "lockUnlock" : 1
+        },
+        "screen2" : {
+          "1loggedinStatus" : 0,
+          "lockUnlock" : 1
+        }
+      }
+    }
+  }
+}
