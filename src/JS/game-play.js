@@ -95,9 +95,9 @@ function calculateShift(time){
     console.log(time);
     if(time<=1229)
     return "1Morning";
-    else if(time<=1829)
+    else if(time<=1859)
     return "2Afternoon";
-    else if(time<=2129)
+    else if(time<=2334)
     return "3Evening";
     else
     return "Invalid Shift";
