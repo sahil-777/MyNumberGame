@@ -3,7 +3,19 @@ const db = firebase.database();
 const rootRef=db.ref();
 
 let MainAdmin='Teqmo';
- 
+
+function logout(){// For Testing
+    firebase.auth().signOut().then(() => {
+        console.log('Lougout Successfully!');
+        window.location="index.html";
+    }).catch((error) => {
+        let errorCode = error.code;
+        let errorMessage = error.message;
+        document.getElementById('error-msg').innerHTML=errorMessage;
+        console.log(errorCode, errorMessage);
+    });
+}
+
 function changeStatus(screenNumber){
     console.log(screenNumber);
 
