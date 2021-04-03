@@ -115,6 +115,7 @@ function insertArray(Admin){
 
     let shift=calculateShift(time);//Calculate shift
     console.log(shift);
+    if(shift!='Invalid Shift'){
     db.ref(MainAdmin+'/Numbers/'+date+'/'+shift+'/'+Admin).push({
        numberArray:"1,2,3,4,5",
        time:time+"-32" //Adding seconds for testing
@@ -128,6 +129,10 @@ function insertArray(Admin){
             console.log('numberArray inserted Successfully!')
         }
       });
+    }
+    else{
+        console.log("Invalid Shift => can't insert number");
+    }
       
 }
 

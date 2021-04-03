@@ -33,6 +33,7 @@ function changeStatus(screenNumber){
             console.log(errorCode, errorMessage);
         } else { 
           console.log("Successfully Logged In =>" ,screenNumber);
+          window.location='game-play.html';//Go to Play Game
         }
       });
     document.getElementById(screenNumber).innerText='Already Logged In';
