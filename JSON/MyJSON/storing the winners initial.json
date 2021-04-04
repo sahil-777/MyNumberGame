@@ -1,0 +1,54 @@
+{
+  "Teqmo" : {
+    "Numbers" : {
+      "2021" : {
+        "04" : {
+          "02" : {
+            "1Morning" : {
+              "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+                "3digit" : {
+                  "key" : "111,211,111,311,411,511",
+                  "key1" : "101,111,254,542,555,888,744"
+                },
+                "4digit" : {
+                  "-MXQqqitITIGg0rVpwBw" : "1,2,3,4,5"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Stores" : {
+      "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+        "details" : {
+          "Address" : "Mumbai",
+          "Name" : "Sahil",
+          "PhoneNumber" : "987654321"
+        },
+        "numberCount" : {
+          "01-04-2021" : 5,
+          "02-04-2021" : 5
+        },
+        "screen1" : {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 1
+        },
+        "screen2" : {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        }
+      }
+    },
+    "Winners" : {
+      "2021-04-02" : {
+        "1Morning" : {
+          "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+            "-MXRj-wWXBySJDUDRRrJ" : "254,542",
+            "ActualNumber" : "254"
+          }
+        }
+      }
+    }
+  }
+}

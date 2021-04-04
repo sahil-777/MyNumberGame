@@ -62,8 +62,8 @@ function Operation(date,shift,digit,winningNumber){
                             if(winningArray.length>=1){
                                 winningArrayTemp =winningArrayTemp.concat(winningArray);
                                 //console.log(winningArray);
-                                //console.log(date,shift,winningNumber,storeUid.key,winningArray);
-                                //insertWinner(date,shift,winningNumber,storeUid.key,winningArray);
+                                console.log(date,shift,winningNumber,storeUid.key,winningArray);
+                                insertWinner(date,shift,winningNumber,storeUid.key,winningArray);
                                 //allTheWinningNumberResult+="<br>"+storeUid.key+"&nbsp&nbsp<h2>"+winningArray+"</h2></br>";
                             }
                             //console.log('x => ',x);
