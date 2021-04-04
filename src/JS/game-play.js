@@ -115,10 +115,15 @@ function insertArray(Admin){
 
     let shift=calculateShift(time);//Calculate shift
     console.log(shift);
+
+    let x=document.getElementById('select-digit').value;
+    console.log(x);
+
     if(shift!='Invalid Shift'){
-    db.ref(MainAdmin+'/Numbers/'+date+'/'+shift+'/'+Admin).push({
-       numberArray:"1,2,3,4,5",
-       time:time+"-32" //Adding seconds for testing
+        let Ref=db.ref(MainAdmin+'/Numbers/'+date+'/'+shift+'/'+Admin+'/'+x+'digit').push();
+        let key=Ref.key;
+        db.ref(MainAdmin+'/Numbers/'+date+'/'+shift+'/'+Admin+'/'+x+'digit').update({
+       [key]:"1,2,3,4,5"
       }, (error) => {
         if (error) {
             let errorCode = error.code;
@@ -136,6 +141,7 @@ function insertArray(Admin){
       
 }
 
+
 function playGame(){
     let isAllowedToPlay=1;//Add function to check
     let Admin=auth.currentUser.uid;
@@ -150,6 +156,8 @@ function playGame(){
         insertArray(Admin);
 
     }
+    
+
 }
 
 /*
