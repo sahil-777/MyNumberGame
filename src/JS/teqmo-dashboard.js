@@ -34,15 +34,15 @@ function isPresent(arr,winningNumber,allPermutations){
 function getPermutations(winningNumber){
     let Permutations=new Set();
     
-    /*
+    
     Permutations.add(254);
     Permutations.add(245);
     Permutations.add(452);
     Permutations.add(425);
     Permutations.add(524);
     Permutations.add(542);
-    */
-   Permutations.add(111);
+    
+   //Permutations.add(111);
     return Permutations;
 }
 
@@ -55,18 +55,23 @@ function Operation(date,shift,digit,winningNumber){
  
                 storeUid.forEach((digitBranch)=>{
                     if(digitBranch.key==digit+'digit'){
+                        let winningArrayTemp=[];
                         digitBranch.forEach((arr)=>{
                             //console.log(arr.key,arr.val());
                             let winningArray=isPresent(arr.val(),winningNumber,allPermutations);
                             if(winningArray.length>=1){
+                                winningArrayTemp =winningArrayTemp.concat(winningArray);
                                 //console.log(winningArray);
                                 //console.log(date,shift,winningNumber,storeUid.key,winningArray);
-                                insertWinner(date,shift,winningNumber,storeUid.key,winningArray);
-                                allTheWinningNumberResult+="<br>"+storeUid.key+"&nbsp&nbsp<h2>"+winningArray+"</h2></br>";
+                                //insertWinner(date,shift,winningNumber,storeUid.key,winningArray);
+                                //allTheWinningNumberResult+="<br>"+storeUid.key+"&nbsp&nbsp<h2>"+winningArray+"</h2></br>";
                             }
                             //console.log('x => ',x);
                             //console.log(digitBranch.key,digitBranch.val());
                         });
+                        if(winningArrayTemp.length>=1){
+                            allTheWinningNumberResult+="<br>"+storeUid.key+"&nbsp&nbsp<h2>"+winningArrayTemp+" </h2></br>";
+                        }
                     }
                 });
             });
