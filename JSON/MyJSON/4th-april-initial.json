@@ -1,0 +1,82 @@
+{
+  "Teqmo" : {
+    "Numbers" : {
+      "2021" : {
+        "04" : {
+          "02" : {
+            "1Morning" : {
+              "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+                "key" : {
+                  "numberArray" : "1,2,3,4,5",
+                  "time" : "22-24-05"
+                },
+                "key1" : "1,2,3,4,5"
+              }
+            },
+            "2Afternoon" : {
+              "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+                "-MXKM1386e3vtxfCI-IO" : {
+                  "numberArray" : "1,2,3,4,5",
+                  "time" : "17-06-32"
+                }
+              }
+            }
+          },
+          "04" : {
+            "2Afternoon" : {
+              "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+                "-MXMGgwT87OIVt5Z2O5H" : {
+                  "numberArray" : "1,2,3,4,5",
+                  "time" : "18-01-32"
+                }
+              }
+            }
+          },
+          "10" : {
+            "1Morning" : {
+              "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+                "-MXKMIjqB90p1gB8aQBi" : {
+                  "numberArray" : "1,2,3,4,5",
+                  "time" : "07-07-32"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Invalid Shift" : {
+        "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+          "-MXMGYyiO7-KCiyfNyb3" : {
+            "numberArray" : "1,2,3,4,5",
+            "time" : "-32"
+          },
+          "-MXMLlNOh0hf3vyjCsCs" : {
+            "numberArray" : "1,2,3,4,5",
+            "time" : "-32"
+          }
+        }
+      }
+    },
+    "Stores" : {
+      "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+        "details" : {
+          "Address" : "Mumbai",
+          "Name" : "Sahil",
+          "PhoneNumber" : "987654321"
+        },
+        "numberCount" : {
+          "01-04-2021" : 5,
+          "02-04-2021" : 5
+        },
+        "screen1" : {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        },
+        "screen2" : {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        }
+      }
+    }
+  }
+}
