@@ -32,10 +32,10 @@ function lockUnlock(screenNumber){
             document.getElementById('error-msg').innerHTML=errorMessage;
             console.log(errorCode, errorMessage);
         } else { 
-          console.log("Sucessfully "+(flag==1?"Locked! ":"Unlocked! ")+screenNumber);
+            //document.getElementById(screenNumber).innerText=(document.getElementById(screenNumber).innerText=='Lock')?'Unlock':'Lock';
+            console.log("Sucessfully "+(flag==1?"Locked! ":"Unlocked! ")+screenNumber);
         }
       });
-    document.getElementById(screenNumber).innerText=(document.getElementById(screenNumber).innerText=='Lock')?'Unlock':'Lock';
 }
  
 

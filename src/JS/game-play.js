@@ -16,7 +16,7 @@ function showMessage(){
 
 function timer(){
     document.getElementById('play-game').style.visibility="hidden";
-    let i=2;//Seconds, keep it to 30 later
+    let i=5;//Seconds, keep it to 30 later
     let countDown=setInterval(function() {
         let seconds=i;
         i--;  
@@ -149,39 +149,70 @@ function insertArray(Admin){
 }
 
 
-function playGame(){
-    let isAllowedToPlay=1;//Add function to check
+async function playGame(){
     let Admin=auth.currentUser.uid;
-    
-    if(isAllowedToPlay==1){
-        timer();
 
-        updateLockUnlock(Admin,screenNumber);
+    db.ref(MainAdmin+"/Stores/"+Admin).child(screenNumber).child('lockUnlock').get().then(function(snapshot) {
+        if (snapshot.exists()) {
+          console.log(snapshot.val());
+          if(snapshot.val()==0){
+              document.getElementById('error-msg').innerHTML='Game Started!';
+                timer();
+        
+                updateLockUnlock(Admin,screenNumber);
+        
+                updateCount(Admin);
+        
+                insertArray(Admin);
+        
+            
+            }
+            else{
+                console.log('Please, Pay the amount!');
+                document.getElementById('error-msg').innerHTML='Please, Pay the amount!';
+            }
+        }
+        else {
+          console.log("No data available");
+        }
+      });
 
-        updateCount(Admin);
 
-        insertArray(Admin);
-
-    }
+  
 
 }
-
+ 
 /*
-db.ref(MainAdmin+"/Stores/"+Admin).child(screenNumber).child('lockUnlock').get().then(function(snapshot) {
-    if (snapshot.exists()) {
-      //console.log(snapshot.val());
-      if(snapshot.val()==1){
-          isAllowedToPlay=1;
-          showMessage();
-      }
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        db.ref(MainAdmin+"/Stores/"+auth.currentUser.uid).child(screenNumber).child('lockUnlock').on('value',(snapshot)=> {
+            if (snapshot.exists()) {
+              console.log(snapshot.val());
+              /*if(snapshot.val()==1){
+                  isAllowedToPlay=1;
+                  showMessage();
+              }
+              if(snapshot.val()==1){
+                  document.getElementById('error-msg').innerHTML='You are allowed to play!';
+              }
+              else{
+                document.getElementById('error-msg').innerHTML='Not allowed to play!';
+              }
+            }
+            else {
+              console.log("No data available");
+            }
+          });
+          /*.catch(function(error) {
+            let errorCode = error.code;
+            let errorMessage = error.message;
+            document.getElementById('error-msg').innerHTML=errorMessage;
+            console.log(errorCode, errorMessage); 
+          });
+          
+    } else {
+      // No user is signed in.
+      window.location='index.html';
     }
-    else {
-      console.log("No data available");
-    }
-  }).catch(function(error) {
-    let errorCode = error.code;
-    let errorMessage = error.message;
-    document.getElementById('error-msg').innerHTML=errorMessage;
-    console.log(errorCode, errorMessage); 
   });
-  */
+*/
