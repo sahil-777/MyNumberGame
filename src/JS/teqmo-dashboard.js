@@ -31,20 +31,38 @@ function isPresent(arr,winningNumber,allPermutations){
     return allWinningNumbers;
 }
 
+let permArr = [],usedChars = [];
+function permute(input) {
+	let i, ch;
+  	for (i = 0; i < input.length; i++) {
+	    ch = input.splice(i, 1)[0];
+	    usedChars.push(ch);
+	    if (input.length == 0) {
+	      permArr.push(usedChars.slice());
+    }
+    permute(input);
+    input.splice(i, 0, ch);
+    usedChars.pop();
+  }
+  return permArr;
+};
+
 function getPermutations(winningNumber){
-    let Permutations=new Set();
-    //console.log('type=> ', typeof winningNumber);
-    /*
-    Permutations.add(254);
-    Permutations.add(245);
-    Permutations.add(452);
-    Permutations.add(425);
-    Permutations.add(524);
-    Permutations.add(542);
-    */
-   Permutations.add(123);
-   //Permutations.add(111);
-    return Permutations;
+	let Permutations=new Set();
+	let arr=[];
+	for(let i=0;i<winningNumber.length;i++)
+		arr.push(winningNumber[i]);
+	let ans=[];
+	permArr=[];usedChars=[];
+	ans=permute(arr);
+	for(let i=0;i<ans.length;i++){
+		let num='';
+		for(let j=0;j<ans[i].length;j++){
+			num+=ans[i][j];
+		}
+		Permutations.add(parseInt(num));
+	}
+	return Permutations;
 }
 
 function Operation(date,shift,digit,winningNumber){
