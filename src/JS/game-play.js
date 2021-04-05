@@ -121,11 +121,17 @@ function insertArray(Admin){
     console.log(x);
 
     if(shift!='Invalid Shift'){
-        let Ref=db.ref(MainAdmin+'/Numbers/'+date+'/'+shift+'/'+Admin+'/'+x+'digit').push();
+    /*    let Ref=db.ref(MainAdmin+'/Numbers/'+date+'/'+shift+'/'+Admin+'/'+x+'digit').push();
         let key=Ref.key;
         db.ref(MainAdmin+'/Numbers/'+date+'/'+shift+'/'+Admin+'/'+x+'digit').update({
        [key]:"1,2,3,4,5"
-      }, (error) => {
+      }*/
+      let Ref=db.ref().push();
+      let key=Ref.key;
+      db.ref(MainAdmin+'/Numbers/'+x+'digit/'+date+'/'+shift+'/'+Admin).update({
+     [key]:"1,2,3,4,5"
+    }
+      , (error) => {
         if (error) {
             let errorCode = error.code;
             let errorMessage = error.message;
