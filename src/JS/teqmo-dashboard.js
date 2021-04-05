@@ -33,15 +33,16 @@ function isPresent(arr,winningNumber,allPermutations){
 
 function getPermutations(winningNumber){
     let Permutations=new Set();
-    
-    
+    //console.log('type=> ', typeof winningNumber);
+    /*
     Permutations.add(254);
     Permutations.add(245);
     Permutations.add(452);
     Permutations.add(425);
     Permutations.add(524);
     Permutations.add(542);
-    
+    */
+   Permutations.add(123);
    //Permutations.add(111);
     return Permutations;
 }
