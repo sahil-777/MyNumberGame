@@ -1,7 +1,8 @@
 const db=firebase.database();
 const auth=firebase.auth();
 let MainAdmin='Teqmo';
-let screenNumber='screen1';
+let screenNumber=localStorage.getItem('screen');
+//alert(screenNumber);
 //Update count
 //Insert Array into Numbers branch
 //Update lock/unlock values
@@ -156,7 +157,6 @@ function playGame(){
         insertArray(Admin);
 
     }
-    
 
 }
 
