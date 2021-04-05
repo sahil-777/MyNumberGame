@@ -45,7 +45,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         console.log("Logged In => ", user.email);
         let Admin=user.uid;
         console.log(Admin);
-        db.ref(MainAdmin+'/Stores').child(Admin).get().then(function(snapshot) {
+        db.ref(MainAdmin+'/Stores').child(Admin).on('value',(snapshot)=> {
             if (snapshot.exists()) {
             let allTheScreens="";
             snapshot.forEach((child) => {
@@ -65,12 +65,13 @@ firebase.auth().onAuthStateChanged(function(user) {
             document.getElementById('list-all-screens').innerHTML="No Screen Present!";
             console.log("No data available");
             }
-        }).catch(function(error) {
+        });
+        /*.catch(function(error) {
             let errorCode = error.code;
             let errorMessage = error.message;
             document.getElementById('error-msg').innerHTML=errorMessage;
             console.log(errorCode, errorMessage);
-        });
+        });*/
     }
     else {
         window.location='index.html';
