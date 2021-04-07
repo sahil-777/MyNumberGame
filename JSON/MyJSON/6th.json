@@ -1,0 +1,44 @@
+{
+  "Teqmo" : {
+    "Details" : {
+      "Rates" : {
+        "25" : "4,6",
+        "50" : "1,2,3,5"
+      }
+    },
+    "Stores" : {
+      "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+        "Payment" : {
+          
+          "totalRevenue" : "450",
+          "week1" : {
+            "AgenUID": "50$",
+            "sales": "500$",
+            "billDetails" : "$250",
+            "billStatus" : "Paid/Unpaid",
+            "count" : "c0,c1,....,c6"
+          },
+          "Week2":{
+            "bill": "200",
+            "coutn":"d"
+          }
+        }
+      }
+    },
+    "Agents":{
+      "AID":{
+        "details": {},
+        "commisionRate":{},
+        "storesAdded": {"date":"St1","date2":"St1"},
+        "Payment":{
+          "totalRevenue": "",
+          "week1":{"StoreUID": "10", "Stoore2": "20"},
+          "week2":{"StoreUID": "10", "Stoore2": "20"}
+        }
+      },
+      "AID2":{}
+    }
+  }
+}
+
+

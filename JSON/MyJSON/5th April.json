@@ -1,0 +1,96 @@
+{
+  "Teqmo" : {
+    "Numbers" : {
+      "3digit" : {
+        "2021" : {
+          "04" : {
+            "07" : {
+              "2Afternoon" : {
+                "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+                  "-MXWjP_hN0lQQx3sEXke" : "123,254,542,434,545",
+                  "-MXWjTcx3NaeOo7D5ZcB" : "1,254,354,434,542"
+                },
+                "abcd" : {
+                  "key1" : "1,254",
+                  "key2" : "123"
+                }
+              }
+            },
+            "14" : {
+              "2Afternoon" : {
+                "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+                  "-MXXBHAK0TiSqRzkuWag" : "1,2,3,4,5",
+                  "-MXXBLbR2JbeZ5FNaiKq" : "1,2,3,4,5"
+                }
+              }
+            },
+            "15" : {
+              "3Evening" : {
+                "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+                  "-MXXV5YadhQn_9x2xP-P" : "1,2,3,4,5"
+                }
+              }
+            }
+          }
+        }
+      },
+      "4digit" : {
+        "2021" : {
+          "04" : {
+            "07" : {
+              "2Afternoon" : {
+                "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+                  "-MXWjViKdXsKJgBqsUw9" : "1,2,3,4,5"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Stores" : {
+      "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+        "details" : {
+          "Address" : "Mumbai",
+          "Name" : "Sahil",
+          "PhoneNumber" : "987654321"
+        },
+        "numberCount" : {
+          "01-04-2021" : 5,
+          "02-04-2021" : 5
+        },
+        "screen1" : {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 1
+        },
+        "screen2" : {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        }
+      }
+    },
+    "Winners" : {
+      "2021-04-02" : {
+        "1Morning" : {
+          "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+            "-MXS8IJI4xtbgstlXuhv" : "254,542",
+            "ActualNumber" : "123"
+          }
+        }
+      },
+      "2021-04-07" : {
+        "2Afternoon" : {
+          "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+            "-MXXVcguqg4fG6qXxGI6" : "254,542",
+            "ActualNumber" : "254"
+          },
+          "abcd" : {
+            "-MXXVch1vk31BEZbm7hE" : "254",
+            "ActualNumber" : "254"
+          }
+        }
+      }
+    },
+    "counter" : 44
+  }
+}

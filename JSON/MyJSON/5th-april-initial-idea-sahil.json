@@ -1,0 +1,21 @@
+{
+  "Teqmo" : {
+    "Details" : {
+      "Rates" : {
+        "Commission" : 0.5
+      }
+    },
+    "Stores" : {
+      "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+        "Payment" : {
+          "totalRevenue" : "$1000",
+          "week1" : {
+            "billDetails" : "$250",
+            "billStatus" : "Paid/Unpaid",
+            "count" : "c0,c1,....,c6"
+          }
+        }
+      }
+    }
+  }
+}
