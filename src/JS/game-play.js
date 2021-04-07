@@ -51,42 +51,64 @@ function updateLockUnlock(Admin,screenNumber){
     });
 }
 
-function updateCount(Admin){
-    console.log('Counter Increment => Under Construction!');
-    //Check if date exists
-        //If yes, then take count value at that date
-        //If no, then set date with count value = 1  
-    //Increment count with 1 at that date;
+function getFormattedDate(date) {
+    date=new Date(date);
+    let year = date.getFullYear();
+    let month = (1 + date.getMonth()).toString().padStart(2, '0');
+    let day = date.getDate().toString().padStart(2, '0');
+    return month + '/' + day + '/' + year;
+}
 
+function getPassedDays(todaysDate){
+    const date1 = new Date('4/4/2021');//MM/DD/YYYY
+    const date2 = new Date(getFormattedDate(todaysDate));
+    const diffTime = Math.abs(date2 - date1);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+    return diffDays;
+}
 
-/*
-    let date=document.getElementById('game-date').value;
-    date = date.split("-").reverse().join("-");
-    console.log(date);
-
-    let count=1;
-    db.ref(MainAdmin+'/Stores/'+Admin+'/numberCount').get().then(function(snapshot) {
-        if (snapshot.exists()) {
-        snapshot.forEach((child) => {
-            //console.log(child.key, child.val());
-            if(child.key==date)
-            count=child.val();
-        });
-        console.log("Date inside function => ",count);
-        console.log("Date exists");
+function increment(Admin,weekNum,Position){
+    console.log('Incrementing =>');
+    db.ref(MainAdmin+'/Stores/'+Admin+'/Payment/week'+weekNum+'/counter/'+Position).transaction( (value) => {
+        if (value === null) {
+            return 0;
+        } else if (typeof value === 'number') {
+            return value + 1;
+        } else {
+            console.log('The counter has a non-numeric value: '); 
         }
-        else {
-        console.log("Count = 1, New date");
+    }, function(error, committed, snapshot) {
+        if (error) {
+            console.log('Transaction failed abnormally!', error);
+        } else if (!committed) {
+            console.log('We aborted the transaction.');
+        } else {
+            console.log('Incremented Successfully!');
         }
-    }).catch(function(error) {
-        let errorCode = error.code;
-        let errorMessage = error.message;
-        document.getElementById('error-msg').innerHTML=errorMessage;
-        console.log(errorCode, errorMessage);
     });
+}
 
-    console.log("Date outside function => ",count);
-*/
+function updateCount(Admin){
+    console.log('Counter Increment...');
+    let date=document.getElementById('game-date').value;
+    let diffDays=getPassedDays(date);
+    let weekNum=Math.floor(diffDays/7)+1;
+    console.log('WeekNum=> ', weekNum);
+    date=new Date(date);
+    let Position=date.getDay();    
+    db.ref(MainAdmin+'/Stores/'+Admin+'/Payment/week'+weekNum+'/counter').get().then(function(snapshot){
+        if(snapshot.exists())
+        increment(Admin,weekNum,Position);
+        else{
+            console.log('Week does not exists, so creating it!');
+            db.ref(MainAdmin+'/Stores/'+Admin+'/Payment/week'+weekNum).set({
+                billDetails:0,
+                billStatus:"generated/paid/unpaid",
+                counter:[0,0,0,0,0,0,0]
+            })
+            increment(Admin,weekNum,Position);
+        }
+    });
 }
 
 function calculateShift(time){
@@ -154,7 +176,7 @@ async function playGame(){
 
     db.ref(MainAdmin+"/Stores/"+Admin).child(screenNumber).child('lockUnlock').get().then(function(snapshot) {
         if (snapshot.exists()) {
-          console.log(snapshot.val());
+          //console.log(snapshot.val());
           if(snapshot.val()==0){
               document.getElementById('error-msg').innerHTML='Game Started!';
                 timer();
@@ -177,4 +199,38 @@ async function playGame(){
       });
 }
  
- 
+
+//Check if date exists
+        //If yes, then take count value at that date
+        //If no, then set date with count value = 1  
+    //Increment count with 1 at that date;
+
+
+/*
+    let date=document.getElementById('game-date').value;
+    date = date.split("-").reverse().join("-");
+    console.log(date);
+
+    let count=1;
+    db.ref(MainAdmin+'/Stores/'+Admin+'/numberCount').get().then(function(snapshot) {
+        if (snapshot.exists()) {
+        snapshot.forEach((child) => {
+            //console.log(child.key, child.val());
+            if(child.key==date)
+            count=child.val();
+        });
+        console.log("Date inside function => ",count);
+        console.log("Date exists");
+        }
+        else {
+        console.log("Count = 1, New date");
+        }
+    }).catch(function(error) {
+        let errorCode = error.code;
+        let errorMessage = error.message;
+        document.getElementById('error-msg').innerHTML=errorMessage;
+        console.log(errorCode, errorMessage);
+    });
+
+    console.log("Date outside function => ",count);
+*/
