@@ -136,52 +136,47 @@ function getResult(){
     }
 }
 
-
-/*
-function Operation(date,shift,digit,winningNumber){
-    let allPermutations=getPermutations(winningNumber);
-    db.ref(MainAdmin+'/Numbers/'+date+'/'+shift).get().then(function(snapshot) {
-        if (snapshot.exists()) {
-            let allTheWinningNumberResult="";
-            snapshot.forEach((storeUid) => {
- 
-                storeUid.forEach((digitBranch)=>{
-                    if(digitBranch.key==digit+'digit'){
-                        let winningArrayTemp=[];
-                        digitBranch.forEach((arr)=>{
-                            //console.log(arr.key,arr.val());
-                            let winningArray=isPresent(arr.val(),winningNumber,allPermutations);
-                            if(winningArray.length>=1){
-                                winningArrayTemp =winningArrayTemp.concat(winningArray);
-                                //console.log(winningArray);
-                                console.log(date,shift,winningNumber,storeUid.key,winningArray);
-                                insertWinner(date,shift,winningNumber,storeUid.key,winningArray);
-                                //allTheWinningNumberResult+="<br>"+storeUid.key+"&nbsp&nbsp<h2>"+winningArray+"</h2></br>";
-                            }
-                            //console.log('x => ',x);
-                            //console.log(digitBranch.key,digitBranch.val());
-                        });
-                        if(winningArrayTemp.length>=1){
-                            allTheWinningNumberResult+="<br>"+storeUid.key+"&nbsp&nbsp<h2>"+winningArrayTemp+" </h2></br>";
-                        }
-                    }
-                });
-            });
-
-            document.getElementById('result').innerHTML=allTheWinningNumberResult;
-        }
-        else {
-          console.log("No data available");
-          document.getElementById('error-msg').innerHTML='No data available';
-        }
-      })
-      .catch(function(error) {
-        let errorCode = error.code;
-        let errorMessage = error.message;
-        document.getElementById('error-msg').innerHTML=errorMessage;
-        console.log(errorCode, errorMessage); 
-      });
+function getFormattedDate(date) {
+    date=new Date(date);
+    let year = date.getFullYear();
+    let month = (1 + date.getMonth()).toString().padStart(2, '0');
+    let day = date.getDate().toString().padStart(2, '0');
+    return month + '/' + day + '/' + year;
 }
-*/
- 
+
+function getPassedDays(todaysDate){
+    const date1 = new Date('4/4/2021');//MM/DD/YYYY
+    const date2 = new Date(getFormattedDate(todaysDate));
+    const diffTime = Math.abs(date2 - date1);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+    return diffDays;
+}
+
+function generateBill(){
+    let date=document.getElementById('bill-date').value;
+    console.log('Date =>', date);
+    let diffDays=getPassedDays(date);
+    let weekNum=Math.floor(diffDays/7)+1;
+    console.log('WeekNum=> ', weekNum);
+    
+    //Take sum all the counts in that week.
+    //Add this counter * commision to bill details.
+    //Add bill details amount to totalRevenue
+    //Change Bill Status to 'generated i.e. 0 '
+
+
+
+
+}
+
+if(sessionStorage.getItem('allStoreBlob')===null){
+    db.ref(MainAdmin+'/Stores').get().then(function(snapshot){
+        if(snapshot.exists()){
+            var allStoresBlob = snapshot.val();
+            sessionStorage.setItem('allStoresBlob', JSON.stringify(allStoresBlob));
+            var allStoresBlob = sessionStorage.getItem('allStoresBlob');
+            console.log('All the Stores data => ', JSON.parse(allStoresBlob));
+        }
+    });
+}
  

@@ -171,7 +171,7 @@ function insertArray(Admin){
 }
 
 
-async function playGame(){
+function playGame(){
     let Admin=auth.currentUser.uid;
 
     db.ref(MainAdmin+"/Stores/"+Admin).child(screenNumber).child('lockUnlock').get().then(function(snapshot) {
@@ -179,13 +179,13 @@ async function playGame(){
           //console.log(snapshot.val());
           if(snapshot.val()==0){
               document.getElementById('error-msg').innerHTML='Game Started!';
-                timer();
+                //timer();
         
-                updateLockUnlock(Admin,screenNumber);
+                //updateLockUnlock(Admin,screenNumber);
         
                 updateCount(Admin);
         
-                insertArray(Admin);
+                //insertArray(Admin);
             
             }
             else{
