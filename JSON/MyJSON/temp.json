@@ -1,80 +1,69 @@
 {
   "Teqmo" : {
-    "Details" : {
-      "Rates" : {
-        "25" : 2,
-        "50" : 1
-      }
-    },
-    "Numbers" : {
-      "3digit" : {
-        "2021" : {
-          "04" : {
-            "07" : {
-              "2Afternoon" : {
-                "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
-                  "-MXWjP_hN0lQQx3sEXke" : "123,254,542,434,545",
-                  "-MXWjTcx3NaeOo7D5ZcB" : "1,254,354,434,542"
-                },
-                "abcd" : {
-                  "key1" : "1,254",
-                  "key2" : "123"
-                }
-              }
-            },
-            "08" : {
-              "2Afternoon" : {
-                "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
-                  "-MXfpqjucC8owCSwAtxD" : "1,2,3,4,5",
-                  "-MXfqECjNWXMBtAiJlXW" : "1,2,3,4,5"
-                }
-              }
-            },
-            "14" : {
-              "2Afternoon" : {
-                "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
-                  "-MXXBHAK0TiSqRzkuWag" : "1,2,3,4,5",
-                  "-MXXBLbR2JbeZ5FNaiKq" : "1,2,3,4,5"
-                }
-              }
-            },
-            "15" : {
-              "3Evening" : {
-                "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
-                  "-MXXV5YadhQn_9x2xP-P" : "1,2,3,4,5"
-                }
-              }
-            }
-          }
-        }
-      },
-      "4digit" : {
-        "2021" : {
-          "04" : {
-            "07" : {
-              "2Afternoon" : {
-                "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
-                  "-MXWjViKdXsKJgBqsUw9" : "1,2,3,4,5"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "Stores" : {
       "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
         "Payment" : {
-          "totalRevenue" : 0,
+          "totalCommission" : 0,
+          "totalSales" : 0,
           "week1" : {
-            "billDetails" : 0,
-            "billStatus" : "generated/paid/unpaid",
-            "counter" : "0,0,0,0,0,0,0"
+            "sales" : 0,
+            "commission" : 0,
+            "billStatus" : 0,
+            "counter" : [ 0, 0, 5, 4, 0, 0, 0 ]
           },
           "week2" : {
-            "billDetails" : 0,
-            "billStatus" : "generated/paid/unpaid",
-            "counter" : "0,0,0,0,0,0,0"
+            "sales" : 0,
+            "commission" : 0,
+            "billStatus" : 0,
+            "counter" : [ 0, 0, 5, 4, 0, 0, 0 ]
+          },
+          "week3" : {
+            "sales" : 0,
+            "commission" : 0,
+            "billStatus" : 0,
+            "counter" : [ 0, 0, 5, 4, 0, 0, 0 ]
+          },
+          "week4" : {
+            "sales" : 0,
+            "commission" : 0,
+            "billStatus" : 0,
+            "counter" : [ 0, 0, 5, 4, 0, 0, 0 ]
+          },
+          "week5" : {
+            "sales" : 0,
+            "commission" : 0,
+            "billStatus" : 0,
+            "counter" : [ 0, 0, 5, 4, 0, 0, 0 ]
+          },
+          "week6" : {
+            "sales" : 0,
+            "commission" : 0,
+            "billStatus" : 0,
+            "counter" : [ 0, 0, 5, 4, 0, 0, 0 ]
+          },
+          "week7" : {
+            "sales" : 0,
+            "commission" : 0,
+            "billStatus" : 0,
+            "counter" : [ 0, 0, 5, 4, 0, 0, 0 ]
+          },
+          "week8" : {
+            "sales" : 0,
+            "commission" : 0,
+            "billStatus" : 0,
+            "counter" : [ 0, 0, 5, 4, 0, 0, 0 ]
+          },
+          "week9" : {
+            "sales" : 0,
+            "commission" : 0,
+            "billStatus" : 0,
+            "counter" : [ 0, 0, 5, 4, 0, 0, 0 ]
+          },
+          "week10" : {
+            "sales" : 0,
+            "commission" : 0,
+            "billStatus" : 0,
+            "counter" : [ 0, 0, 5, 4, 0, 0, 0 ]
           }
         },
         "details" : {
@@ -84,33 +73,11 @@
         },
         "screen1" : {
           "lockUnlock" : 1,
-          "loggedinStatus" : 1
+          "loggedinStatus" : 0
         },
         "screen2" : {
-          "lockUnlock" : 0,
-          "loggedinStatus" : 1
-        }
-      }
-    },
-    "Winners" : {
-      "2021-04-02" : {
-        "1Morning" : {
-          "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
-            "-MXS8IJI4xtbgstlXuhv" : "254,542",
-            "ActualNumber" : "123"
-          }
-        }
-      },
-      "2021-04-07" : {
-        "2Afternoon" : {
-          "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
-            "-MXXVcguqg4fG6qXxGI6" : "254,542",
-            "ActualNumber" : "254"
-          },
-          "abcd" : {
-            "-MXXVch1vk31BEZbm7hE" : "254",
-            "ActualNumber" : "254"
-          }
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
         }
       }
     }
