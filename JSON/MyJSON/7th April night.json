@@ -1,0 +1,102 @@
+{
+  "Teqmo" : {
+    "Details" : {
+      "Rates" : {
+        "25" : 2,
+        "50" : 1
+      }
+    },
+    "Numbers" : {
+      "3digit" : {
+        "2021" : {
+          "04" : {
+            "04" : {
+              "2Afternoon" : {
+                "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+                  "-MXgPzaec1TTAHXIp1eV" : "1,2,3,4,5"
+                }
+              }
+            },
+            "07" : {
+              "2Afternoon" : {
+                "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+                  "-MXWjP_hN0lQQx3sEXke" : "123,254,542,434,545",
+                  "-MXWjTcx3NaeOo7D5ZcB" : "1,254,354,434,542"
+                },
+                "abcd" : {
+                  "key1" : "1,254",
+                  "key2" : "123"
+                }
+              }
+            }
+          }
+        }
+      },
+      "4digit" : {
+        "2021" : {
+          "04" : {
+            "07" : {
+              "2Afternoon" : {
+                "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+                  "-MXWjViKdXsKJgBqsUw9" : "1,2,3,4,5"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Stores" : {
+      "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+        "Payment" : {
+          "totalRevenue" : 0,
+          "week1" : {
+            "billDetails" : 0,
+            "billStatus" : "generated/paid/unpaid",
+            "counter" : [ 3, 0, 0, 0, 2, 7, 1 ]
+          },
+          "week2" : {
+            "billDetails" : 0,
+            "billStatus" : "generated/paid/unpaid",
+            "counter" : [ 1, 0, 0, 0, 0, 0, 0 ]
+          }
+        },
+        "details" : {
+          "Address" : "Mumbai",
+          "Name" : "Sahil",
+          "PhoneNumber" : "987654321"
+        },
+        "screen1" : {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 1
+        },
+        "screen2" : {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        }
+      }
+    },
+    "Winners" : {
+      "2021-04-02" : {
+        "1Morning" : {
+          "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+            "-MXS8IJI4xtbgstlXuhv" : "254,542",
+            "ActualNumber" : "123"
+          }
+        }
+      },
+      "2021-04-07" : {
+        "2Afternoon" : {
+          "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+            "-MXgGqXc18Gc9h1_F9wz" : "254,542",
+            "ActualNumber" : "254"
+          },
+          "abcd" : {
+            "-MXgGqXdRCC9Qf7SsJFf" : "254",
+            "ActualNumber" : "254"
+          }
+        }
+      }
+    }
+  }
+}
