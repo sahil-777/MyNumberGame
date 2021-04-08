@@ -29,7 +29,7 @@ function showSalesReport(){
     let weekNum=getWeekNum(date);
     db.ref(MainAdmin+'/Stores/'+Admin+'/Payment').on('value',(snapshot)=>{
         if(snapshot.exists()){
-            let salesReportForLastTenWeeks="<table><h2><tr><th>weekNumber</th><th>Sales</th><th>Commission</th></tr><h2>"
+            let salesReportForLastTenWeeks="<table><h2><tr><th>weekNumber</th><th>Sales</th><th>Commission</th><th>Profit</th></tr><h2>"
             snapshot.forEach(weeks => {
                 let str=weeks.key;
                 //console.log(parseInt(str.substring(4,str.length)));
@@ -39,7 +39,8 @@ function showSalesReport(){
                 let weeklySale=weeks.val().sales;
                 let weeklyCommission=weeks.val().commission;
                 //console.log(weeks.key,weeklySale,weeklyCommission);
-                salesReportForLastTenWeeks+="<tr><td>"+weekNumber+"</td><td>"+weeklySale+"</td><td>"+weeklyCommission+"</td></tr>";
+                let weeklyProfit=weeklySale-weeklyCommission;
+                salesReportForLastTenWeeks+="<tr><td>"+weekNumber+"</td><td>"+weeklySale+"</td><td>"+weeklyCommission+"</td><td>"+weeklyProfit+"</td></tr>";
                 }
             });
             salesReportForLastTenWeeks+="</table>";
