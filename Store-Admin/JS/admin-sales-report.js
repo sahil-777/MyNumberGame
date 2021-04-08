@@ -27,7 +27,7 @@ function showSalesReport(){
     let date=document.getElementById('sales-date').value; // Select 12-06-2021 for testing
     let Admin=auth.currentUser.uid;
     let weekNum=getWeekNum(date);
-    db.ref(MainAdmin+'/Stores/'+Admin+'/Payment').get().then(function(snapshot){
+    db.ref(MainAdmin+'/Stores/'+Admin+'/Payment').on('value',(snapshot)=>{
         if(snapshot.exists()){
             let salesReportForLastTenWeeks="<table><h2><tr><th>weekNumber</th><th>Sales</th><th>Commission</th></tr><h2>"
             snapshot.forEach(weeks => {
@@ -49,6 +49,34 @@ function showSalesReport(){
             console.log('No data found');
         }
     })
-    
+}
 
+function  showCountReport(){
+    let date=document.getElementById('count-date').value; // Select 12-06-2021 for testing
+    let Admin=auth.currentUser.uid;
+    let weekNum=getWeekNum(date);
+    db.ref(MainAdmin+'/Stores/'+Admin+'/Payment').on('value',(snapshot)=>{
+        if(snapshot.exists()){
+            let countReportForLastTenWeeks="<table><h2><tr><th>weekNumber</th><th>Count</th></tr><h2>"
+            snapshot.forEach(weeks => {
+                let str=weeks.key;
+                let weekNumber=parseInt(str.substring(4,str.length));
+                if(str.substring(0,4)=='week' && (weekNum-10<weekNumber && weekNumber<=weekNum)){
+                    //console.log(weeks.val().counter);
+                    let sum=0;
+                    weeks.val().counter.forEach(cnt=>{
+                        //console.log(cnt);
+                        sum+=cnt;
+                    });
+                    //console.log(weekNumber,sum);
+                    countReportForLastTenWeeks+="<tr><td>"+weekNumber+"</td><td>"+sum+"</td></tr>"
+                }
+            });
+            countReportForLastTenWeeks+="</table>";
+            document.getElementById('count-report-for-last-ten-weeks').innerHTML=countReportForLastTenWeeks;
+        }
+        else{
+            console.log('No data found');
+        }
+    })   
 }
