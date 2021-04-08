@@ -179,13 +179,13 @@ function playGame(){
           //console.log(snapshot.val());
           if(snapshot.val()==0){
               document.getElementById('error-msg').innerHTML='Game Started!';
-                //timer();
+                timer();
         
-                //updateLockUnlock(Admin,screenNumber);
+                updateLockUnlock(Admin,screenNumber);
         
                 updateCount(Admin);
         
-                //insertArray(Admin);
+                insertArray(Admin);
             
             }
             else{

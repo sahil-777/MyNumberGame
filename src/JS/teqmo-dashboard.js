@@ -100,7 +100,6 @@ function Operation(date,shift,digit,winningNumber){
         document.getElementById('error-msg').innerHTML=errorMessage;
         console.log(errorCode, errorMessage); 
       });
-      
 }
 
 function insertWinner(date,shift,winningNumber,storeUid,winningArray){
@@ -163,7 +162,7 @@ function generateBill(){
     //Add this counter * commision to bill details.
     //Add bill details amount to totalRevenue
     //Change Bill Status to 'generated i.e. 0 '
-
+    
 
 
 

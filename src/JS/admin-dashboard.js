@@ -66,19 +66,56 @@ firebase.auth().onAuthStateChanged(function(user) {
             console.log("No data available");
             }
         });
-        /*.catch(function(error) {
-            let errorCode = error.code;
-            let errorMessage = error.message;
-            document.getElementById('error-msg').innerHTML=errorMessage;
-            console.log(errorCode, errorMessage);
-        });*/
+
+
+ 
     }
     else {
         window.location='index.html';
     }
 });
 
- 
+//--------------------------------------------------------------------------------
+//Count Per Day of Week Which we want to show in graph , StoreAdmin => Dashboard Page
+
+function getFormattedDate(date) {
+    date=new Date(date);
+    let year = date.getFullYear();
+    let month = (1 + date.getMonth()).toString().padStart(2, '0');
+    let day = date.getDate().toString().padStart(2, '0');
+    return month + '/' + day + '/' + year;
+}
+
+function getPassedDays(todaysDate){//Gives total days passed between 4/4/2021 & date parameter
+    const date1 = new Date('4/4/2021');//MM/DD/YYYY //Fixed Date
+    const date2 = new Date(getFormattedDate(todaysDate));
+    const diffTime = Math.abs(date2 - date1);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+    return diffDays;
+}
+
+
+function getCountPerDayOfWeek(){
+    let date=document.getElementById('date').value;
+    let Admin=auth.currentUser.uid;
+    let diffDays=getPassedDays(date);
+    let weekNum=Math.floor(diffDays/7)+1;
+    db.ref(MainAdmin+'/Stores/'+Admin+'/Payment/week'+weekNum+'/counter').on('value',(snapshot)=>{
+        if(snapshot.exists()){
+            let Days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+            let countPerDay='';
+            snapshot.forEach((Day)=>{
+                console.log(Days[Day.key],Day.val());
+                countPerDay+=Days[Day.key]+"&nbsp"+Day.val()+"<br>";
+            });
+            document.getElementById('count-per-day-for-current-week').innerHTML=countPerDay;
+        }
+        else{
+            document.getElementById('count-per-day-for-current-week').innerHTML='Week does not exist';
+            console.log('Week does not exist');
+        }
+    });
+}
 
  
  
