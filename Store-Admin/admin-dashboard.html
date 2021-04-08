@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard Page</title>
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+    <script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyD2yB4qlzyyBs1lMM29qLxIvMocZ2vWT2g",
+        authDomain: "mynumbergame-pro.firebaseapp.com",
+        projectId: "mynumbergame-pro",
+        storageBucket: "mynumbergame-pro.appspot.com",
+        messagingSenderId: "625975752666",
+        appId: "1:625975752666:web:70f8686c6160768e59b2e3"
+    };
+    firebase.initializeApp(firebaseConfig);
+ 
+    </script>
+    <script src="./JS/admin-dashboard.js"></script>
+</head>
+<body>
+    <p id="error-msg"></p>
+    <p id="admin-info"></p>
+    <button id="logout-btn" onclick="logout()">Logout (for testing)</button>
+    
+    <!--
+        <button id="edit-profile-admin" onclick="window.location='editAdminProfile.html'">Edit Profile</button>
+    -->
+    <h2>All the screens:</h2>
+    <!--
+        <button id="unlock-all-btn">Unlock All the Users</button>
+    -->
+        <p id="list-all-screens"></p>
+<p>-------------------------------------------------------------------</p>
+  <h1>Count Per Date for Current Week</h1>
+  <input type="date" id="date">
+  <button id="get-count" onclick="getCountPerDayOfWeek()">getCount</button>
+  <p id="count-per-day-for-current-week"></p>  
+
+</body>
+</html>
