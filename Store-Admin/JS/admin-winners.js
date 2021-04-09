@@ -15,7 +15,7 @@ let MainAdmin='Teqmo';
 function showWinners(){ //All The winners at that Particular Store
     let Admin=auth.currentUser.uid;
     let allTheWinners=[];
-    db.ref(MainAdmin+'/Winners1/'+Admin).on('value',(snapshot)=>{
+    db.ref(MainAdmin+'/Winners/'+Admin).on('value',(snapshot)=>{
         if(snapshot.exists()){
             snapshot.forEach(digit => {
                 digit.forEach(date=>{
