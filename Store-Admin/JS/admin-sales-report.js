@@ -37,23 +37,23 @@ function getDateFromWeek(weekNum,startOrEnd){
 }
 
 function showSalesReport(){
-    let date=document.getElementById('sales-date').value; // Select 12-06-2021 for 10 weeks for testing
+    //let date=document.getElementById('sales-date').value; // Select 12-06-2021 for 10 weeks for testing
     //let date=new Date(); //IMP takes current date
     let Admin=auth.currentUser.uid;
-    let weekNum=getWeekNum(date);
-    let salesReportForLastTenWeeks=[];
+    //let weekNum=getWeekNum(date);
+    let salesReportForAllTheWeeks=[];
     db.ref(MainAdmin+'/Stores/'+Admin+'/Payment').on('value',(snapshot)=>{
         if(snapshot.exists()){
             snapshot.forEach(weeks => {
                 let str=weeks.key;
                 let weekNumber=parseInt(str.substring(4,str.length));
-                if(str.substring(0,4)=='week' && (weekNum-10<weekNumber && weekNumber<=weekNum)){
+                if(str.substring(0,4)=='week'){
                 let weeklySale=weeks.val().sales;
                 let weeklyCommission=weeks.val().commission;
                 let weeklyProfit=weeklySale-weeklyCommission;
                 let startDate=getDateFromWeek(weekNumber,0);
                 let endDate=getDateFromWeek(weekNumber,1);
-                    salesReportForLastTenWeeks.push({
+                    salesReportForAllTheWeeks.push({
                         "StartDate":startDate,
                         "EndDate":endDate,
                         "Sales":weeklySale,
@@ -67,8 +67,8 @@ function showSalesReport(){
             console.log('No data found');
         }
     })
-    console.log(salesReportForLastTenWeeks);
-    return salesReportForLastTenWeeks;  //Returns JSON
+    console.log(salesReportForAllTheWeeks);
+    return salesReportForAllTheWeeks;  //Returns JSON
 }
 /*  return:
     Sample JSON:
@@ -109,5 +109,42 @@ function  showCountReport(){
             console.log('No data found');
         }
     })   
+}
+*/
+
+/*
+function showSalesReport(){
+    let date=document.getElementById('sales-date').value; // Select 12-06-2021 for 10 weeks for testing
+    //let date=new Date(); //IMP takes current date
+    let Admin=auth.currentUser.uid;
+    let weekNum=getWeekNum(date);
+    let salesReportForLastTenWeeks=[];
+    db.ref(MainAdmin+'/Stores/'+Admin+'/Payment').on('value',(snapshot)=>{
+        if(snapshot.exists()){
+            snapshot.forEach(weeks => {
+                let str=weeks.key;
+                let weekNumber=parseInt(str.substring(4,str.length));
+                if(str.substring(0,4)=='week' && (weekNum-10<weekNumber && weekNumber<=weekNum)){
+                let weeklySale=weeks.val().sales;
+                let weeklyCommission=weeks.val().commission;
+                let weeklyProfit=weeklySale-weeklyCommission;
+                let startDate=getDateFromWeek(weekNumber,0);
+                let endDate=getDateFromWeek(weekNumber,1);
+                    salesReportForLastTenWeeks.push({
+                        "StartDate":startDate,
+                        "EndDate":endDate,
+                        "Sales":weeklySale,
+                        "Commission":weeklyCommission,
+                        "Profit":weeklyProfit
+                    });
+                }
+            });
+        }
+        else{
+            console.log('No data found');
+        }
+    })
+    console.log(salesReportForLastTenWeeks);
+    return salesReportForLastTenWeeks;  //Returns JSON
 }
 */
