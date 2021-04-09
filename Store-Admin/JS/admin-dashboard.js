@@ -94,28 +94,28 @@ function getPassedDays(todaysDate){//Gives total days passed between 4/4/2021 & 
     return diffDays;
 }
 
-
+ 
 function getCountPerDayOfWeek(){
     let date=document.getElementById('date').value;
     let Admin=auth.currentUser.uid;
     let diffDays=getPassedDays(date);
     let weekNum=Math.floor(diffDays/7)+1;
+    let countPerDay=[];
     db.ref(MainAdmin+'/Stores/'+Admin+'/Payment/week'+weekNum+'/counter').on('value',(snapshot)=>{
         if(snapshot.exists()){
-            let Days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-            let countPerDay='';
             snapshot.forEach((Day)=>{
-                console.log(Days[Day.key],Day.val());
-                countPerDay+=Days[Day.key]+"&nbsp"+Day.val()+"<br>";
+                countPerDay.push(Day.val());
             });
-            document.getElementById('count-per-day-for-current-week').innerHTML=countPerDay;
         }
         else{
-            document.getElementById('count-per-day-for-current-week').innerHTML='Week does not exist';
             console.log('Week does not exist');
         }
     });
-}
+    console.log(countPerDay);
+    return countPerDay; //returns Array e.g. [2, 1, 0, 7, 100, 0, 6]
+} 
 
  
  
+
+
