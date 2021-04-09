@@ -32,12 +32,13 @@ function getDateFromWeek(weekNum,startOrEnd){
     result.setDate(result.getDate() + daysPassed);
     let month = (1 + result.getMonth()).toString().padStart(2, '0');
     let day = result.getDate().toString().padStart(2, '0');
-    return day+'/'+month;
+    let year = result.getFullYear();
+    return day+'/'+month+'/'+year;
 }
 
 function showSalesReport(){
-    //let date=document.getElementById('sales-date').value; // Select 12-06-2021 for 10 weeks for testing
-    let date=new Date(); //IMP takes current date
+    let date=document.getElementById('sales-date').value; // Select 12-06-2021 for 10 weeks for testing
+    //let date=new Date(); //IMP takes current date
     let Admin=auth.currentUser.uid;
     let weekNum=getWeekNum(date);
     let salesReportForLastTenWeeks=[];
@@ -66,7 +67,7 @@ function showSalesReport(){
             console.log('No data found');
         }
     })
-    //console.log(salesReportForLastTenWeeks);
+    console.log(salesReportForLastTenWeeks);
     return salesReportForLastTenWeeks;  //Returns JSON
 }
 /*  return:
