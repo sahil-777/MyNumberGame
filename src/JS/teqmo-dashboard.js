@@ -104,10 +104,17 @@ function Operation(date,shift,digit,winningNumber){
 
 function insertWinner(digit,date,shift,winningNumber,storeUid,winningArray){
     date=date.replace('/','-').replace('/','-');
-    db.ref(MainAdmin+'/Winners/'+digit+'digit/'+date+'/'+shift+'/'+storeUid).set({'ActualNumber':winningNumber});
-    let Ref=db.ref(MainAdmin+'/Winners/'+date+'/'+shift+'/'+storeUid).push();
+    //Old:
+    //db.ref(MainAdmin+'/Winners/'+digit+'digit/'+date+'/'+shift+'/'+storeUid).set({'ActualNumber':winningNumber});
+    //let Ref=db.ref(MainAdmin+'/Winners/'+date+'/'+shift+'/'+storeUid).push();
     let winningString=winningArray.toString();
-    db.ref(MainAdmin+'/Winners/'+digit+'digit/'+date+'/'+shift+'/'+storeUid).child(Ref.key).set(winningString);
+    //db.ref(MainAdmin+'/Winners/'+digit+'digit/'+date+'/'+shift+'/'+storeUid).child(Ref.key).set(winningString);
+    //-----------
+
+    //New:
+    db.ref(MainAdmin+'/Winners/'+storeUid+'/'+digit+'digit/'+date+'/'+shift).set({'ActualNumber':winningNumber});
+    db.ref(MainAdmin+'/Winners/'+storeUid+'/'+digit+'digit/'+date+'/'+shift).child('Permutations').set(winningString);
+    console.log('Inserted');
 }
 
 function getResult(){
