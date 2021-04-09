@@ -78,7 +78,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 //--------------------------------------------------------------------------------
 //Count Per Day of Week Which we want to show in graph , StoreAdmin => Dashboard Page
 
-function getFormattedDate(date) {
+function getFormattedDate(date) {//Gives date in MM/DD/YYYY format
     date=new Date(date);
     let year = date.getFullYear();
     let month = (1 + date.getMonth()).toString().padStart(2, '0');
@@ -89,14 +89,15 @@ function getFormattedDate(date) {
 function getPassedDays(todaysDate){//Gives total days passed between 4/4/2021 & date parameter
     const date1 = new Date('4/4/2021');//MM/DD/YYYY //Fixed Date
     const date2 = new Date(getFormattedDate(todaysDate));
+    //console.log(date1,date2);
     const diffTime = Math.abs(date2 - date1);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
     return diffDays;
 }
 
- 
 function getCountPerDayOfWeek(){
-    let date=document.getElementById('date').value;
+    //let date=document.getElementById('date').value;
+    let date=new Date(); //Current Date
     let Admin=auth.currentUser.uid;
     let diffDays=getPassedDays(date);
     let weekNum=Math.floor(diffDays/7)+1;
