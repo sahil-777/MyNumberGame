@@ -75,26 +75,54 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
 });
 
+
+
+
+
 //--------------------------------------------------------------------------------
 //Count Per Day of Week Which we want to show in graph , StoreAdmin => Dashboard Page
 
-function getFormattedDate(date) {//Gives date in MM/DD/YYYY format
+/**
+ * For formatting any date in MM/DD/YYYY
+ * @param {string} date any date of any format 
+ * @returns {string} formattedDate Date in MM/DD/YYYY format
+ */
+
+function getFormattedDate(date) {
     date=new Date(date);
     let year = date.getFullYear();
     let month = (1 + date.getMonth()).toString().padStart(2, '0');
     let day = date.getDate().toString().padStart(2, '0');
-    return month + '/' + day + '/' + year;
+    let formattedDate=month + '/' + day + '/' + year;
+    return formattedDate;
 }
 
-function getPassedDays(todaysDate){//Gives total days passed between 4/4/2021 & date parameter
-    const date1 = new Date('4/4/2021');//MM/DD/YYYY //Fixed Date
+
+
+
+
+/**
+ * Gives Number of days between a fixed date and current date.
+ * It can be used to calculate current week number
+ * @param {string} todaysDate current date in any format 
+ * @returns {string} diffDays Number of days passed after Initial Fixed Date
+ */
+function getPassedDays(todaysDate){ 
+    const date1 = new Date('4/4/2021'); 
     const date2 = new Date(getFormattedDate(todaysDate));
-    //console.log(date1,date2);
     const diffTime = Math.abs(date2 - date1);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
     return diffDays;
 }
 
+
+
+
+/**
+ * Count Per Day of Current Week, from [Sun, Mon,... , Sat]
+ * Current WeekNumber is calculated from current date 
+ * @returns {Array} countPerDay Count per day of week, 0th pos:Sunday, ..., 6th pos:Saturday
+ */
 function getCountPerDayOfWeek(){
     //let date=document.getElementById('date').value;
     let date=new Date(); //Current Date
@@ -112,7 +140,7 @@ function getCountPerDayOfWeek(){
             console.log('Week does not exist');
         }
     });
-    console.log(countPerDay);
+    //console.log(countPerDay);
     return countPerDay; //returns Array e.g. [2, 1, 0, 7, 100, 0, 6]
 } 
 

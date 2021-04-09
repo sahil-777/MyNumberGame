@@ -6,6 +6,12 @@ let MainAdmin='Teqmo';
 //------------------------------------------------------------
 // StoreAdmin=> Winners Page =>  Winners at that paticular Store
 
+
+/**
+ * Gives All the winners found only on that particular store with thier info like
+ * Number of Digits, Date on which winner array generated, Shift, Actual Winning Number, Winning Permutations of that number
+ * @returns {Array of JSON objects} Each JSON contains info about that winning number
+ */
 function showWinners(){ //All The winners at that Particular Store
     let Admin=auth.currentUser.uid;
     let allTheWinners=[];

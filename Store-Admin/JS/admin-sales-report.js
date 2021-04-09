@@ -2,6 +2,12 @@ const db=firebase.database();
 const auth=firebase.auth();
 let MainAdmin='Teqmo';
 
+/**
+ * For formatting any date in MM/DD/YYYY
+ * @param {string} date any date of any format 
+ * @returns {string} formattedDate Date in MM/DD/YYYY format
+ */
+
 function getFormattedDate(date) {
     date=new Date(date);
     let year = date.getFullYear();
@@ -9,6 +15,13 @@ function getFormattedDate(date) {
     let day = date.getDate().toString().padStart(2, '0');
     return month + '/' + day + '/' + year;
 }
+
+/**
+ * Gives Number of days between a fixed date and current date.
+ * It can be used to calculate current week number
+ * @param {string} todaysDate current date in any format 
+ * @returns {string} diffDays Number of days passed after Initial Fixed Date
+ */
 
 function getPassedDays(todaysDate){//Gives total days passed between 4/4/2021 & date parameter
     const date1 = new Date('4/4/2021');//MM/DD/YYYY //Fixed Date
@@ -18,11 +31,24 @@ function getPassedDays(todaysDate){//Gives total days passed between 4/4/2021 & 
     return diffDays;
 }
 
+
+/**
+ * Gives week number on which 'date' lies
+ * @param {strign} date any date in any format 
+ * @returns {Number} week number
+ */
+
 function getWeekNum(date){
     let diffDays=getPassedDays(date);
     return (Math.floor(diffDays/7)+1);
 }
 
+/**
+ * Gives Starting & Ending date of Week in DD/MM/YYYY format   
+ * @param {Number} weekNum Week number of which we want to find Starting & Ending Date
+ * @param {Number} startOrEnd 0 => StartDate , 1 => End Date
+ * @returns {string} if startOrEnd = 0 then Starting date, else Ending date of that week
+ */
 function getDateFromWeek(weekNum,startOrEnd){
     let daysPassed=(weekNum-1)*7;
     let result = new Date('4/4/2021');
@@ -36,11 +62,13 @@ function getDateFromWeek(weekNum,startOrEnd){
     return day+'/'+month+'/'+year;
 }
 
+
+/**
+ * Gives all the sales related data for All the weeks present in Database
+ * @returns {Array of JSON Objects} Each JSON contains data for each week  
+ */
 function showSalesReport(){
-    //let date=document.getElementById('sales-date').value; // Select 12-06-2021 for 10 weeks for testing
-    //let date=new Date(); //IMP takes current date
     let Admin=auth.currentUser.uid;
-    //let weekNum=getWeekNum(date);
     let salesReportForAllTheWeeks=[];
     db.ref(MainAdmin+'/Stores/'+Admin+'/Payment').on('value',(snapshot)=>{
         if(snapshot.exists()){
@@ -67,7 +95,7 @@ function showSalesReport(){
             console.log('No data found');
         }
     })
-    console.log(salesReportForAllTheWeeks);
+    //console.log(salesReportForAllTheWeeks);
     return salesReportForAllTheWeeks;  //Returns JSON
 }
 /*  return:
@@ -79,6 +107,11 @@ function showSalesReport(){
 */
 
 
+
+
+
+
+//------------------------------------------------------------------------------------------------
 
 /*   Plan Cancelled (No need to show this data on graph)
 function  showCountReport(){

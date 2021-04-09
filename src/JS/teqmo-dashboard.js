@@ -186,3 +186,9 @@ if(sessionStorage.getItem('allStoreBlob')===null){
     });
 }
  
+/*
+* one or two lines about what the function does
+* @param weekNum {string} small description about the input
+* @param startorEnd {string} small description about the input
+* @returns whatever {return datatype} description
+*/
