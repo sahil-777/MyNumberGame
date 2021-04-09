@@ -73,8 +73,8 @@ function showSalesReport(){
 /*  return:
     Sample JSON:
     [
-        {"StartDate":04/04,"EndDate":10/04,"Sales":500,"Commission":200,"Profit":300},
-        {"StartDate":11/04,"EndDate":17/04,"Sales":1000,"Commission":450,"Profit":550}
+        {"StartDate":04/04/2021,"EndDate":10/04/2021,"Sales":500,"Commission":200,"Profit":300},
+        {"StartDate":11/04/2021,"EndDate":17/04/2021,"Sales":1000,"Commission":450,"Profit":550}
     ]
 */
 
