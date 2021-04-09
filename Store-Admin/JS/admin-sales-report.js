@@ -23,35 +23,63 @@ function getWeekNum(date){
     return (Math.floor(diffDays/7)+1);
 }
 
+function getDateFromWeek(weekNum,startOrEnd){
+    let daysPassed=(weekNum-1)*7;
+    let result = new Date('4/4/2021');
+    if(startOrEnd==1)
+        daysPassed+=6;
+    
+    result.setDate(result.getDate() + daysPassed);
+    let month = (1 + result.getMonth()).toString().padStart(2, '0');
+    let day = result.getDate().toString().padStart(2, '0');
+    return day+'/'+month;
+}
+
 function showSalesReport(){
-    let date=document.getElementById('sales-date').value; // Select 12-06-2021 for testing
+    //let date=document.getElementById('sales-date').value; // Select 12-06-2021 for 10 weeks for testing
+    let date=new Date(); //IMP takes current date
     let Admin=auth.currentUser.uid;
     let weekNum=getWeekNum(date);
+    let salesReportForLastTenWeeks=[];
     db.ref(MainAdmin+'/Stores/'+Admin+'/Payment').on('value',(snapshot)=>{
         if(snapshot.exists()){
-            let salesReportForLastTenWeeks="<table><h2><tr><th>weekNumber</th><th>Sales</th><th>Commission</th><th>Profit</th></tr><h2>"
             snapshot.forEach(weeks => {
                 let str=weeks.key;
-                //console.log(parseInt(str.substring(4,str.length)));
                 let weekNumber=parseInt(str.substring(4,str.length));
                 if(str.substring(0,4)=='week' && (weekNum-10<weekNumber && weekNumber<=weekNum)){
-                //console.log(weeks.key,weeks.val());
                 let weeklySale=weeks.val().sales;
                 let weeklyCommission=weeks.val().commission;
-                //console.log(weeks.key,weeklySale,weeklyCommission);
                 let weeklyProfit=weeklySale-weeklyCommission;
-                salesReportForLastTenWeeks+="<tr><td>"+weekNumber+"</td><td>"+weeklySale+"</td><td>"+weeklyCommission+"</td><td>"+weeklyProfit+"</td></tr>";
+                let startDate=getDateFromWeek(weekNumber,0);
+                let endDate=getDateFromWeek(weekNumber,1);
+                    salesReportForLastTenWeeks.push({
+                        "StartDate":startDate,
+                        "EndDate":endDate,
+                        "Sales":weeklySale,
+                        "Commission":weeklyCommission,
+                        "Profit":weeklyProfit
+                    });
                 }
             });
-            salesReportForLastTenWeeks+="</table>";
-            document.getElementById('sales-report-for-last-ten-weeks').innerHTML=salesReportForLastTenWeeks;
         }
         else{
             console.log('No data found');
         }
     })
+    //console.log(salesReportForLastTenWeeks);
+    return salesReportForLastTenWeeks;  //Returns JSON
 }
+/*  return:
+    Sample JSON:
+    [
+        {"StartDate":04/04,"EndDate":10/04,"Sales":500,"Commission":200,"Profit":300},
+        {"StartDate":11/04,"EndDate":17/04,"Sales":1000,"Commission":450,"Profit":550}
+    ]
+*/
 
+
+
+/*   Plan Cancelled (No need to show this data on graph)
 function  showCountReport(){
     let date=document.getElementById('count-date').value; // Select 12-06-2021 for testing
     let Admin=auth.currentUser.uid;
@@ -81,3 +109,4 @@ function  showCountReport(){
         }
     })   
 }
+*/
