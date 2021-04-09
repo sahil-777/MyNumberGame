@@ -15,7 +15,7 @@ function showWinners(){ //All The winners at that Particular Store
                 digit.forEach(date=>{
                     date.forEach(shift=>{
                             let obj={
-                                "Digits":digit.key,
+                                "Digits":digit.key[0],
                                 "Date": date.key.split("-").reverse().join("-"),
                                 "Shift":shift.key.substring(1,shift.key.length),
                                 "ActualNumber":shift.val().ActualNumber,
@@ -37,9 +37,9 @@ function showWinners(){ //All The winners at that Particular Store
 /*
     Sample JSON:
     [
-        {Digits: "3digit", Date: "07-04-2021", Shift: "Afternoon", ActualNumber: "254", Permutations: "254,542,542"},
-        {Digits: "3digit", Date: "08-04-2021", Shift: "Evening", ActualNumber: "548", Permutations: "845,584"},
-        {Digits: "4digit", Date: "07-04-2021", Shift: "Afternoon", ActualNumber: "2154", Permutations: "2154,1542,4521"},
-        {Digits: "4digit", Date: "08-04-2021", Shift: "Morning", ActualNumber: "5481", Permutations: "1845,5184"}  
+        {Digits: "3", Date: "07-04-2021", Shift: "Afternoon", ActualNumber: "254", Permutations: "254,542,542"},
+        {Digits: "3", Date: "08-04-2021", Shift: "Evening", ActualNumber: "548", Permutations: "845,584"},
+        {Digits: "4", Date: "07-04-2021", Shift: "Afternoon", ActualNumber: "2154", Permutations: "2154,1542,4521"},
+        {Digits: "4", Date: "08-04-2021", Shift: "Morning", ActualNumber: "5481", Permutations: "1845,5184"}  
     ]
 */
