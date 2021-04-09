@@ -117,5 +117,8 @@ function getCountPerDayOfWeek(){
     });
 }
 
- 
+function x(){
+    let valu=getCountPerDayOfWeek();
+    console.log('valu',valu);
+}
  

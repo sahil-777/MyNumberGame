@@ -71,7 +71,7 @@ function Operation(date,shift,digit,winningNumber){
                     if(winningArray.length>=1){
                         winningArrayTemp =winningArrayTemp.concat(winningArray);
                         console.log(date,shift,winningNumber,storeUid.key,winningArray);
-                        insertWinner(date,shift,winningNumber,storeUid.key,winningArray);
+                        insertWinner(digit,date,shift,winningNumber,storeUid.key,winningArray);
                     }
                 });
                 if(winningArrayTemp.length>0){
@@ -102,12 +102,12 @@ function Operation(date,shift,digit,winningNumber){
       });
 }
 
-function insertWinner(date,shift,winningNumber,storeUid,winningArray){
+function insertWinner(digit,date,shift,winningNumber,storeUid,winningArray){
     date=date.replace('/','-').replace('/','-');
-    db.ref(MainAdmin+'/Winners/'+date+'/'+shift+'/'+storeUid).set({'ActualNumber':winningNumber});
+    db.ref(MainAdmin+'/Winners/'+digit+'digit/'+date+'/'+shift+'/'+storeUid).set({'ActualNumber':winningNumber});
     let Ref=db.ref(MainAdmin+'/Winners/'+date+'/'+shift+'/'+storeUid).push();
     let winningString=winningArray.toString();
-    db.ref(MainAdmin+'/Winners/'+date+'/'+shift+'/'+storeUid).child(Ref.key).set(winningString);
+    db.ref(MainAdmin+'/Winners/'+digit+'digit/'+date+'/'+shift+'/'+storeUid).child(Ref.key).set(winningString);
 }
 
 function getResult(){
