@@ -57,68 +57,68 @@
     "Stores" : {
       "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
         "Payment" : {
-          "totalSales" : 0,
           "totalCommission" : 0,
+          "totalSales" : 0,
           "week1" : {
-            "sales" : 0,
-            "commission":0,
-            "billStatus" :0,
-            "counter" : [ 1, 0, 0, 5, 4, 1, 1 ]
-          },
-          "week2" : {
-            "sales" : 0,
-            "commission":0,
-            "billStatus" :0,
-            "counter" : [ 1, 0, 0, 5, 4, 1, 1 ]
-          },
-          "week3" : {
-            "sales" : 0,
-            "commission":0,
-            "billStatus" :0,
-            "counter" : [ 1, 0, 0, 5, 4, 1, 1 ]
-          },
-          "week4" : {
-            "sales" : 0,
-            "commission":0,
-            "billStatus" :0,
-            "counter" : [ 1, 0, 0, 5, 4, 1, 1 ]
-          },
-          "week5" : {
-            "sales" : 0,
-            "commission":0,
-            "billStatus" :0,
-            "counter" : [ 1, 0, 0, 5, 4, 1, 1 ]
-          },
-          "week6" : {
-            "sales" : 0,
-            "commission":0,
-            "billStatus" :0,
-            "counter" : [ 1, 0, 0, 5, 4, 1, 1 ]
-          },
-          "week7" : {
-            "sales" : 0,
-            "commission":0,
-            "billStatus" :0,
-            "counter" : [ 1, 0, 0, 5, 4, 1, 1 ]
-          },
-          "week8" : {
-            "sales" : 0,
-            "commission":0,
-            "billStatus" :0,
-            "counter" : [ 1, 0, 0, 5, 4, 1, 1 ]
-          },
-          "week9" : {
-            "sales" : 0,
-            "commission":0,
-            "billStatus" :0,
-            "counter" : [ 1, 0, 0, 5, 4, 1, 1 ]
+            "billStatus" : 0,
+            "commission" : 0,
+            "counter" : [ 76, 92, 57, 69, 91, 23, 158 ],
+            "sales" : 0
           },
           "week10" : {
-            "sales" : 0,
-            "commission":0,
-            "billStatus" :0,
-            "counter" : [ 1, 0, 0, 5, 4, 1, 1 ]
-          }           
+            "billStatus" : 0,
+            "commission" : 0,
+            "counter" : [ 1, 0, 0, 5, 4, 1, 1 ],
+            "sales" : 0
+          },
+          "week2" : {
+            "billStatus" : 0,
+            "commission" : 0,
+            "counter" : [ 27, 54, 121, 52, 93, 100, 127 ],
+            "sales" : 0
+          },
+          "week3" : {
+            "billStatus" : 0,
+            "commission" : 0,
+            "counter" : [ 1, 0, 0, 5, 4, 1, 1 ],
+            "sales" : 0
+          },
+          "week4" : {
+            "billStatus" : 0,
+            "commission" : 0,
+            "counter" : [ 1, 0, 0, 5, 4, 1, 1 ],
+            "sales" : 0
+          },
+          "week5" : {
+            "billStatus" : 0,
+            "commission" : 0,
+            "counter" : [ 1, 0, 0, 5, 4, 1, 1 ],
+            "sales" : 0
+          },
+          "week6" : {
+            "billStatus" : 0,
+            "commission" : 0,
+            "counter" : [ 1, 0, 0, 5, 4, 1, 1 ],
+            "sales" : 0
+          },
+          "week7" : {
+            "billStatus" : 0,
+            "commission" : 0,
+            "counter" : [ 1, 0, 0, 5, 4, 1, 1 ],
+            "sales" : 0
+          },
+          "week8" : {
+            "billStatus" : 0,
+            "commission" : 0,
+            "counter" : [ 1, 0, 0, 5, 4, 1, 1 ],
+            "sales" : 0
+          },
+          "week9" : {
+            "billStatus" : 0,
+            "commission" : 0,
+            "counter" : [ 1, 0, 0, 5, 4, 1, 1 ],
+            "sales" : 0
+          }
         },
         "details" : {
           "Address" : "Mumbai",
@@ -136,26 +136,70 @@
       }
     },
     "Winners" : {
-      "2021-04-02" : {
-        "1Morning" : {
-          "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
-            "-MXS8IJI4xtbgstlXuhv" : "254,542",
-            "ActualNumber" : "123"
+      "3digit" : {
+        "2021-04-07" : {
+          "2Afternoon" : {
+            "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+              "-MXpQJ874273HfquZW_Q" : "254,542",
+              "ActualNumber" : "254"
+            },
+            "abcd" : {
+              "-MXpQJ88qjA8ijzRiLyG" : "254",
+              "ActualNumber" : "254"
+            }
           }
         }
       },
-      "2021-04-07" : {
-        "2Afternoon" : {
-          "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
-            "-MXXVcguqg4fG6qXxGI6" : "254,542",
-            "ActualNumber" : "254"
-          },
-          "abcd" : {
-            "-MXXVch1vk31BEZbm7hE" : "254",
-            "ActualNumber" : "254"
+    "4digit" : {
+        "2021-04-07" : {
+          "2Afternoon" : {
+            "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+              "-MXpQJ874273HfquZW_Q" : "2154,1542",
+              "ActualNumber" : "2154"
+            },
+            "abcd" : {
+              "-MXpQJ88qjA8ijzRiLyG" : "1224",
+              "ActualNumber" : "2214"
+            }
           }
         }
       }
+
+    },
+
+
+    "Winners1" : {
+     	"OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+		      "3digit" : {
+		        "2021-04-07" : {
+		          "2Afternoon" : {
+ 		              "Permutations" : "254,542",
+		              "ActualNumber" : "254"
+ 		          }
+		        },
+		        "2021-04-08" : {
+		          "3Evening" : {
+ 		              "Permutations" : "845,584",
+		              "ActualNumber" : "548"
+ 		          }
+		        }
+
+			},
+			  "4digit" : {
+		        "2021-04-07" : {
+		          "2Afternoon" : {
+		              "Permutations" : "2154,1542",
+		              "ActualNumber" : "2154"
+		          }
+		        },
+		        "2021-04-08" : {
+		          "1Morning" : {
+ 		              "Permutations" : "1845,5184",
+		              "ActualNumber" : "5481"
+ 		          }
+		        }
+			}
+      	} 
     }
   }
 }
