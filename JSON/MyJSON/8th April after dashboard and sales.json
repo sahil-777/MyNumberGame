@@ -1,0 +1,85 @@
+{
+  "Teqmo" : {
+    "Stores" : {
+      "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+        "Payment" : {
+          "totalCommission" : 0,
+          "totalSales" : 0,
+          "week1" : {
+            "billStatus" : 0,
+            "commission" : 200,
+            "counter" : [ 0, 0, 5, 4, 1, 0, 0 ],
+            "sales" : 500
+          },
+          "week10" : {
+            "billStatus" : 0,
+            "commission" : 0,
+            "counter" : [ 0, 0, 5, 4, 0, 0, 0 ],
+            "sales" : 0
+          },
+          "week2" : {
+            "billStatus" : 0,
+            "commission" : 0,
+            "counter" : [ 0, 0, 5, 4, 0, 0, 0 ],
+            "sales" : 0
+          },
+          "week3" : {
+            "billStatus" : 0,
+            "commission" : 0,
+            "counter" : [ 0, 0, 5, 4, 0, 0, 0 ],
+            "sales" : 0
+          },
+          "week4" : {
+            "billStatus" : 0,
+            "commission" : 0,
+            "counter" : [ 0, 0, 5, 4, 0, 0, 0 ],
+            "sales" : 0
+          },
+          "week5" : {
+            "billStatus" : 0,
+            "commission" : 0,
+            "counter" : [ 0, 0, 5, 4, 0, 0, 0 ],
+            "sales" : 0
+          },
+          "week6" : {
+            "billStatus" : 0,
+            "commission" : 0,
+            "counter" : [ 0, 0, 5, 4, 0, 0, 0 ],
+            "sales" : 0
+          },
+          "week7" : {
+            "billStatus" : 0,
+            "commission" : 0,
+            "counter" : [ 0, 0, 5, 4, 0, 0, 0 ],
+            "sales" : 0
+          },
+          "week8" : {
+            "billStatus" : 0,
+            "commission" : 0,
+            "counter" : [ 0, 0, 5, 4, 0, 0, 0 ],
+            "sales" : 0
+          },
+          "week9" : {
+            "billStatus" : 0,
+            "commission" : 0,
+            "counter" : [ 0, 0, 5, 4, 0, 0, 0 ],
+            "sales" : 0
+          }
+        },
+        "details" : {
+          "Address" : "Mumbai",
+          "Name" : "Sahil",
+          "PhoneNumber" : "987654321"
+        },
+        "screen1" : {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        },
+        "screen2" : {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        }
+      }
+    }
+  }
+}
