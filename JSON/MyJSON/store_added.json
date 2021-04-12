@@ -1,0 +1,326 @@
+{
+  "Teqmo" : {
+    "Details" : {
+      "Rates" : {
+        "25" : 2,
+        "50" : 1
+      }
+    },
+    "Numbers" : {
+      "3digit" : {
+        "2021" : {
+          "04" : {
+            "07" : {
+              "2Afternoon" : {
+                "5NRlQnIpAUPJO4F7PJphNniwejk1" : {
+                  "-MXWjP_hN0lQQx3sEXke" : "123,254,542,434,545",
+                  "-MXWjTcx3NaeOo7D5ZcB" : "1,254,354,434,542"
+                },
+                "abcd" : {
+                  "key1" : "1,254",
+                  "key2" : "123"
+                }
+              }
+            },
+            "14" : {
+              "2Afternoon" : {
+                "5NRlQnIpAUPJO4F7PJphNniwejk1" : {
+                  "-MXXBHAK0TiSqRzkuWag" : "1,2,3,4,5",
+                  "-MXXBLbR2JbeZ5FNaiKq" : "1,2,3,4,5"
+                }
+              }
+            },
+            "15" : {
+              "3Evening" : {
+                "5NRlQnIpAUPJO4F7PJphNniwejk1" : {
+                  "-MXXV5YadhQn_9x2xP-P" : "1,2,3,4,5"
+                }
+              }
+            }
+          }
+        }
+      },
+      "4digit" : {
+        "2021" : {
+          "04" : {
+            "07" : {
+              "2Afternoon" : {
+                "5NRlQnIpAUPJO4F7PJphNniwejk1" : {
+                  "-MXWjViKdXsKJgBqsUw9" : "1,2,3,4,5"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Stores" : {
+      "5NRlQnIpAUPJO4F7PJphNniwejk1" : {
+        "Payment" : {
+          "Weeks" : [ null, {
+            "billStatus" : 2,
+            "commission" : 400,
+            "counter" : [ 27, 52, 154, 121, 48, 74, 58 ],
+            "sales" : 1500
+          }, {
+            "billStatus" : 2,
+            "commission" : 450,
+            "counter" : [ 27, 54, 121, 52, 93, 100, 127 ],
+            "sales" : 850
+          }, {
+            "billStatus" : 2,
+            "commission" : 500,
+            "counter" : [ 12, 85, 45, 47, 147, 14, 15 ],
+            "sales" : 950
+          }, {
+            "billStatus" : 2,
+            "commission" : 350,
+            "counter" : [ 52, 93, 100, 127, 84, 75, 62 ],
+            "sales" : 650
+          }, {
+            "billStatus" : 2,
+            "commission" : 400,
+            "counter" : [ 47, 12, 16, 24, 51, 75, 89 ],
+            "sales" : 800
+          }, {
+            "billStatus" : 2,
+            "commission" : 200,
+            "counter" : [ 95, 85, 14, 56, 32, 14, 41 ],
+            "sales" : 450
+          }, {
+            "billStatus" : 2,
+            "commission" : 450,
+            "counter" : [ 25, 15, 42, 63, 58, 45, 75 ],
+            "sales" : 1200
+          }, {
+            "billStatus" : 1,
+            "commission" : 450,
+            "counter" : [ 63, 45, 85, 47, 12, 34, 65 ],
+            "sales" : 1150
+          }, {
+            "billStatus" : 1,
+            "commission" : 650,
+            "counter" : [ 102, 14, 52, 75, 81, 56, 147 ],
+            "sales" : 1450
+          }, {
+            "billStatus" : 0,
+            "commission" : 250,
+            "counter" : [ 27, 52, 154, 121, 48, 74, 58 ],
+            "sales" : 700
+          } ],
+          "totalCommission" : 4100,
+          "totalSales" : 9700
+        },
+        "Screens" : [ {
+          "lockUnlock" : 0,
+          "loggedinStatus" : 1
+        }, {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        }, {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        } ],
+        "details" : {
+          "Address" : "California",
+          "Name" : "George",
+          "PhoneNumber" : "123456789"
+        }
+      },
+
+
+           "CcQWEbVj2cTXCAgqrQHAw6QIBgg1" : {
+        "Payment" : {
+          "Weeks" : [ null, {
+            "billStatus" : 2,
+            "commission" : 500,
+            "counter" : [ 27, 56, 164, 151, 44, 34, 28 ],
+            "sales" : 1000
+          }, {
+            "billStatus" : 2,
+            "commission" : 450,
+            "counter" : [ 64, 54, 131, 52, 91, 120, 127 ],
+            "sales" : 800
+          }, {
+            "billStatus" : 2,
+            "commission" : 550,
+            "counter" : [ 32, 25, 75, 87, 147, 64, 25 ],
+            "sales" : 1000
+          }, {
+            "billStatus" : 2,
+            "commission" : 350,
+            "counter" : [ 54, 43, 160, 327, 86, 75, 62 ],
+            "sales" : 1500
+          }, {
+            "billStatus" : 2,
+            "commission" : 400,
+            "counter" : [ 77, 92, 17, 22, 41, 35, 84 ],
+            "sales" : 1800
+          }, {
+            "billStatus" : 2,
+            "commission" : 300,
+            "counter" : [ 75, 95, 94, 86, 62, 44, 91 ],
+            "sales" : 1450
+          }, {
+            "billStatus" : 2,
+            "commission" : 450,
+            "counter" : [ 25, 15, 42, 63, 58, 45, 75 ],
+            "sales" : 1250
+          }, {
+            "billStatus" : 1,
+            "commission" : 450,
+            "counter" : [ 62, 145, 85, 147, 112, 64, 85 ],
+            "sales" : 1150
+          }, {
+            "billStatus" : 1,
+            "commission" : 650,
+            "counter" : [ 10, 114, 52, 175, 181, 156, 47 ],
+            "sales" : 1050
+          }, {
+            "billStatus" : 0,
+            "commission" : 250,
+            "counter" : [ 127, 52, 154, 121, 48, 74, 68 ],
+            "sales" : 750
+          } ],
+          "totalCommission" : 4350,
+          "totalSales" : 11750
+        },
+        "Screens" : [ {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        }, {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        }, {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        }, {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        }, {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        }, {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        }, {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        } ],
+        "details" : {
+          "Address" : "LA",
+          "Name" : "Samuel",
+          "PhoneNumber" : "123547698"
+        }
+      },
+
+           "On9uAFEBsIZQ1uZf2AUgN4WkUyq1" : {
+        "Payment" : {
+          "Weeks" : [ null, {
+            "billStatus" : 2,
+            "commission" : 200,
+            "counter" : [ 127, 52, 154, 121, 48, 74, 158 ],
+            "sales" : 1300
+          }, {
+            "billStatus" : 2,
+            "commission" : 400,
+            "counter" : [ 27, 58, 121, 52, 98, 108, 127 ],
+            "sales" : 800
+          }, {
+            "billStatus" : 2,
+            "commission" : 250,
+            "counter" : [ 28, 85, 145, 47, 147, 148, 185 ],
+            "sales" : 850
+          }, {
+            "billStatus" : 2,
+            "commission" : 450,
+            "counter" : [ 25, 93, 180, 177, 84, 75, 52 ],
+            "sales" : 1050
+          }, {
+            "billStatus" : 2,
+            "commission" : 500,
+            "counter" : [ 47, 12, 16, 24, 51, 75, 89 ],
+            "sales" : 1200
+          }, {
+            "billStatus" : 2,
+            "commission" : 550,
+            "counter" : [ 55, 85, 44, 56, 32, 54, 11 ],
+            "sales" : 1450
+          }, {
+            "billStatus" : 2,
+            "commission" : 450,
+            "counter" : [ 25, 15, 42, 63, 58, 45, 75 ],
+            "sales" : 1200
+          }, {
+            "billStatus" : 1,
+            "commission" : 450,
+            "counter" : [ 63, 45, 85, 47, 112, 134, 65 ],
+            "sales" : 1150
+          }, {
+            "billStatus" : 1,
+            "commission" : 600,
+            "counter" : [ 102, 114, 52, 175, 181, 56, 147 ],
+            "sales" : 1450
+          }, {
+            "billStatus" : 0,
+            "commission" : 200,
+            "counter" : [ 27, 22, 154, 121, 68, 74, 68 ],
+            "sales" : 750
+          } ],
+          "totalCommission" : 4050,
+          "totalSales" : 11250
+        },
+        "Screens" : [ {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        }, {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        }, {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        }, {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        } ],
+        "details" : {
+          "Address" : "New York",
+          "Name" : "Nicole",
+          "PhoneNumber" : "1254547896"
+        }
+      }
+    },
+    "Winners" : {
+      "5NRlQnIpAUPJO4F7PJphNniwejk1" : {
+        "3digit" : {
+          "2021-04-07" : {
+            "2Afternoon" : {
+              "ActualNumber" : "254",
+              "Permutations" : "254,542,542"
+            }
+          },
+          "2021-04-08" : {
+            "3Evening" : {
+              "ActualNumber" : "548",
+              "Permutations" : "845,584"
+            }
+          }
+        },
+        "4digit" : {
+          "2021-04-07" : {
+            "2Afternoon" : {
+              "ActualNumber" : "2154",
+              "Permutations" : "2154,1542,4521"
+            }
+          },
+          "2021-04-08" : {
+            "1Morning" : {
+              "ActualNumber" : "5481",
+              "Permutations" : "1845,5184"
+            }
+          }
+        }
+      }
+    }
+  }
+}
