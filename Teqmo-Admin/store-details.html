@@ -362,7 +362,7 @@
                          },
                          "search": "#datatableSearch",
                          "entries": "#datatableEntries",
-                         "pageLength": 12,
+                         "pageLength": 8,
                          "isResponsive": false,
                          "isShowPaging": false,
                          "pagination": "datatablePagination"
@@ -379,34 +379,11 @@
                   </thead>
 
                   <tbody>
-
-                    <tr></tr>
-
-                    <!--SAMPLE TABLE ROW
                     <tr>
-                      <td class="table-column-pr-0">
-                        <div class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" id="ordersCheck1">
-                          <label class="custom-control-label" for="ordersCheck1"></label>
-                        </div>
-                      </td>
-                      <td class="table-column-pl-0">
-                        <a href="./ecommerce-order-details.html">#35463</a>
-                      </td>
-                      <td>Aug 17, 2020</td>
-                      <td>
-                        <span class="badge badge-soft-success">
-                          <span class="legend-indicator bg-success"></span>Paid
-                        </span>
-                      </td>
-                      <td>$256.39</td>
-                      <td>
-                        <a class="btn btn-sm btn-white" href="javascript:;" data-toggle="modal" data-target="#invoiceReceiptModal">
-                          <i class="tio-receipt-outlined mr-1"></i> Invoice
-                        </a>
-                      </td>
+                      <td><h2>Loading...<h2></td>
+                       
                     </tr>
-                  -->
+                  
                    
                   </tbody>
                 </table>
@@ -677,23 +654,23 @@
         
         // INITIALIZATION OF DATATABLES
         // =======================================================
-        var datatable = $.HSCore.components.HSDatatables.init($('#datatable'), {
-          select: {
-            style: 'multi',
-            selector: 'td:first-child input[type="checkbox"]',
-            classMap: {
-              checkAll: '#datatableCheckAll',
-              counter: '#datatableCounter',
-              counterInfo: '#datatableCounterInfo'
-            }
-          },
-          language: {
-            zeroRecords: '<div class="text-center p-4">' +
-                '<img class="mb-3" src="./assets/svg/illustrations/sorry.svg" alt="Image Description" style="width: 7rem;">' +
-                '<p class="mb-0">No data to show</p>' +
-                '</div>'
-          }
-        });
+        // var datatable = $.HSCore.components.HSDatatables.init($('#datatable'), {
+        //   select: {
+        //     style: 'multi',
+        //     selector: 'td:first-child input[type="checkbox"]',
+        //     classMap: {
+        //       checkAll: '#datatableCheckAll',
+        //       counter: '#datatableCounter',
+        //       counterInfo: '#datatableCounterInfo'
+        //     }
+        //   },
+        //   language: {
+        //     zeroRecords: '<div class="text-center p-4">' +
+        //         '<img class="mb-3" src="./assets/svg/illustrations/sorry.svg" alt="Image Description" style="width: 7rem;">' +
+        //         '<p class="mb-0">No data to show</p>' +
+        //         '</div>'
+        //   }
+        // });
 
         $('.js-datatable-filter').on('change', function() {
           var $this = $(this),
@@ -703,21 +680,21 @@
           datatable.column(targetColumnIndex).search(elVal).draw();
         });
 
-        $('#datatableSearch').on('mouseup', function (e) {
-          var $input = $(this),
-            oldValue = $input.val();
+        // $('#datatableSearch').on('mouseup', function (e) {
+        //   var $input = $(this),
+        //     oldValue = $input.val();
 
-          if (oldValue == "") return;
+        //   if (oldValue == "") return;
 
-          setTimeout(function(){
-            var newValue = $input.val();
+        //   setTimeout(function(){
+        //     var newValue = $input.val();
 
-            if (newValue == ""){
-              // Gotcha
-              datatable.search('').draw();
-            }
-          }, 1);
-        });
+        //     if (newValue == ""){
+        //       // Gotcha
+        //       datatable.search('').draw();
+        //     }
+        //   }, 1);
+        // });
 
         
         // INITIALIZATION OF CHARTJS

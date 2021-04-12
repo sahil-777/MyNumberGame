@@ -21,48 +21,6 @@ function showStoresDetails(){
     storeBillDetails();
 }
 
-function storeBillDetails(){
-    let storeUID = location.search.split('=')[1];
-    console.log(storeUID);
-    firebase.database().ref(`Teqmo/Stores/${storeUID}/Payment/Weeks`).on('value',(snapshot)=>{
-        if(snapshot.exists()){
-            snapshot.forEach(week=>{
-                let billStatusArray=["Not generated","Pending","Paid"];
-                let billStatusClasses=["fail","warning","success"];
-                let startDate=getDateFromWeek(week.key,0);//From Common function's File
-                let endDate=getDateFromWeek(week.key,1);
-                let billStatus=billStatusArray[week.val().billStatus];
-                let billIconClass=billStatusClasses[week.val().billStatus];
-                let Commission=week.val().commission;
-                let Sales=week.val().sales;
-                //console.log(startDate,endDate,billStatus,billIconClass,Commission,Sales);
-                let tableRow=`<tr>
-                <td>${startDate}</td>
-                <td>${endDate}</td>
-                <td>
-                  <span class="badge badge-soft-${billIconClass}">
-                    <span class="legend-indicator bg-${billIconClass}"></span>${billStatus}
-                  </span>
-                </td>
-                <td>${Commission}</td>
-                <td>${Sales}</td>
-                <td>
-                  <a class="btn btn-sm btn-white" href="javascript:;" data-toggle="modal" data-target="#invoiceReceiptModal">
-                    <i class="tio-receipt-outlined mr-1"></i> Invoice
-                  </a>
-                </td>
-              </tr>`;
-
-              document.getElementById('datatable').innerHTML += tableRow;
-
-            });
-        }
-        else{
-            console.log('No week exists');
-        }
-    });
-}
-
 function storeOwnerInfo(){
     let storeUID = location.search.split('=')[1];
     firebase.database().ref(`Teqmo/Stores/${storeUID}/details`).on('value',(snapshot)=>{
@@ -84,4 +42,84 @@ function storeOwnerInfo(){
         }
     });
 }
+
+async function storeBillDetails(){
+    let storeUID = location.search.split('=')[1];
+    console.log(storeUID);
+    let billDetailsData=[];
+    let snapshot=await firebase.database().ref(`Teqmo/Stores/${storeUID}/Payment/Weeks`).once('value');
+        if(snapshot.exists()){
+            snapshot.forEach(week=>{
+                let billStatusArray=["Not generated","Pending","Paid"];
+                let billStatusClasses=["fail","warning","success"];//For Icon & Colour
+                let startDate=getDateFromWeek(week.key,0);//From Common function's File
+                let endDate=getDateFromWeek(week.key,1);
+                let billStatus=billStatusArray[week.val().billStatus];
+                let billIconClass=billStatusClasses[week.val().billStatus];
+                let Commission=week.val().commission;
+                let Sales=week.val().sales;
+
+                
+                let billStatusHTML=`<span class="badge badge-soft-${billIconClass}">
+                                    <span class="legend-indicator bg-${billIconClass}"></span>${billStatus}
+                                    </span>`;
+                let invoiceIcon= `<a class="btn btn-sm btn-white" href="javascript:;" data-toggle="modal" data-target="#invoiceReceiptModal">
+                                  <i class="tio-receipt-outlined mr-1"></i> Invoice
+                                  </a>`;
+                //console.log(startDate,endDate,billStatusHTML,billIconClass,Commission,Sales);
+                
+                let row=[startDate,endDate,billStatusHTML,Commission,Sales,invoiceIcon];
+                billDetailsData.unshift(row);   //Adding JSON at beginning
+            });
+        }
+        else{
+            console.log('No week exists');
+        }
+    updateDataTable(billDetailsData);
+}
+
+//-----------------------------------------------------------------------------
+// INITIALIZATION OF DATATABLES
+function updateDataTable(dataSet){
+    //console.log(dataSet);
+    // Sample Data to be received (Number of items in each row should match the columns)
+    // let dataSet = [
+    //      ["Sun Apr 11, 2021", "Sat Apr 17, 2021", "200", "$ 200", "$ 100","y" ],
+    //      ["Sun Apr 18, 2021", "Sat Apr 24, 2021", "100", "$ 100", "$ 50","n" ]
+    //  ]
  
+    let datatable = $.HSCore.components.HSDatatables.init($('#datatable'), {
+      data: dataSet,
+      columns: [
+          { title: "Start Date" },
+          { title: "End Date" },
+          { title: "Payment" },
+          { title: "Commission" },
+          { title: "Sales" },
+          { title: "Invoice" }
+      ],
+      language: {
+        zeroRecords: '<div class="text-center p-4">' +
+            '<img class="mb-3" src="./assets/svg/illustrations/sorry.svg" alt="Image Description" style="width: 7rem;">' +
+            '<p class="mb-0">No data to show</p>' +
+            '</div>'
+      }
+    });
+
+    // Initialise search on table
+    $('#datatableSearch').on('mouseup', function (e) {
+      var $input = $(this),
+        oldValue = $input.val();
+
+      if (oldValue == "") return;
+
+      setTimeout(function(){
+        var newValue = $input.val();
+
+        if (newValue == ""){
+          // Gotcha
+          datatable.search('').draw();
+        }
+      }, 1);
+    });
+}
