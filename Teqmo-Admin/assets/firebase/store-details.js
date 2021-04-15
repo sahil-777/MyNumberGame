@@ -17,25 +17,67 @@ $(document).on('ready', function () {
 showStoresDetails();
 
 function showStoresDetails(){
-    storeOwnerInfo();
-    storeBillDetails();
+    let storeUID = location.search.split('=')[1];
+    storeOwnerInfo(storeUID);
+    storeReportCard(storeUID);
+    storeBillDetails(storeUID);
 }
 
-function storeOwnerInfo(){
-    let storeUID = location.search.split('=')[1];
+/**
+ * Gives Total Count/players of that store of all time 
+ * @param {Number} storeUID UID of that Store
+ * @returns {Number} countSum ,sum of all the counts of that store
+ */
+async function getTotalCountOfStore(storeUID){
+    const snapshot = await firebase.database().ref(`Teqmo/Stores/${storeUID}/Payment`).once('value')
+    const data = snapshot.val()
+    let countSum=0;
+    jQuery.each(data.Weeks, function(weekNum, details) {
+         if(details){
+             if(details.counter){ 
+                countSum += details.counter.reduce((a, b) => a + b, 0) //Sum of array elements
+             }
+         }
+    })
+    return countSum;
+}
+
+/**
+ * To update all the information about that store like,
+ * Email, Owner-name, Phone, City, State, Store-name, Company-name
+ * @param {Number} storeUID UID of that Store
+ */
+async function storeOwnerInfo(storeUID){
     firebase.database().ref(`Teqmo/Stores/${storeUID}/details`).on('value',(snapshot)=>{
         if(snapshot.exists()){
             let data=snapshot.val();
-            let Address=data.Address;
-            let Email=data.Email;
-            let Name=data.Name;
-            let PhoneNumber=data.PhoneNumber;
-            //console.log(Address,Email,Name,PhoneNumber);
+            let Email=(typeof data.Email=='undefined')?'Email':data.Email;
+            let OwnerName=(typeof data.OwnerName=='undefined')?'Owner-name':data.OwnerName;
+            let Phone=(typeof data.Phone=='undefined')?'Phone':data.Phone;
             let contactInfo=` <li><i class="tio-online mr-2"></i>${Email}</li>
-                    <li><i class="tio-android-phone-vs mr-2"></i>${PhoneNumber}</li>`;
-            document.getElementById('contact-info').innerHTML=contactInfo;
+                    <li><i class="tio-android-phone-vs mr-2"></i>${Phone}</li>`;
+            
+            let City=(typeof data.City=='undefined')?'City':data.City;
+            let State=(typeof data.State=='undefined')?'State':data.State;
+            let CompanyName=(typeof data.CompanyName=='undefined')?'Company-name':data.CompanyName;
+            let StoreName=(typeof data.StoreName=='undefined')?'Store-name':data.StoreName;
 
-            document.getElementById('store-owner-name').innerHTML=Name;
+            let StoreInfo=` <li>
+                            <i class="tio-user-outlined nav-icon"></i>
+                            ${StoreName}
+                            </li>
+                            <li>
+                            <i class="tio-briefcase-outlined nav-icon"></i>
+                            ${CompanyName}
+                            </li>
+                            <li>
+                            <i class="tio-city nav-icon"></i>
+                            ${City},${State}
+                            </li>`;
+            
+            document.getElementById('store-info').innerHTML=StoreInfo;
+            document.getElementById('contact-info').innerHTML=contactInfo;
+            document.getElementById('store-owner-name').innerHTML=OwnerName;
         }
         else{
             console.log('Store Owner data not available');
@@ -43,8 +85,30 @@ function storeOwnerInfo(){
     });
 }
 
-async function storeBillDetails(){
-    let storeUID = location.search.split('=')[1];
+
+/**
+ * To update all the statistical,sales related data of that store like,
+ * Total : Commission, Sales, Count/Players, Profit
+ * @param {Number} storeUID 
+ */
+async function storeReportCard(storeUID){
+    let snapshot = await firebase.database().ref(`Teqmo/Stores/${storeUID}/Payment/totalSales`).once('value'); 
+    let totalSales=snapshot.val();
+    snapshot = await firebase.database().ref(`Teqmo/Stores/${storeUID}/Payment/totalCommission`).once('value'); 
+    let totalCommission=snapshot.val();
+    let totalProfit=totalSales-totalCommission;
+    let totalCount=await getTotalCountOfStore(storeUID);
+    document.getElementById('total-count').innerHTML=totalCount;
+    document.getElementById('total-sales').innerHTML='$ '+totalSales;
+    document.getElementById('total-commission').innerHTML='$ '+totalCommission;
+    document.getElementById('total-profit').innerHTML='$ '+totalProfit;
+}
+
+/**
+ * All the bills for all the weeks of that store from beginning
+ * @param {Number} storeUID 
+ */
+async function storeBillDetails(storeUID){
     console.log(storeUID);
     let billDetailsData=[];
     let snapshot=await firebase.database().ref(`Teqmo/Stores/${storeUID}/Payment/Weeks`).once('value');
@@ -79,9 +143,11 @@ async function storeBillDetails(){
 }
 
 //-----------------------------------------------------------------------------
-// INITIALIZATION OF DATATABLES
+/**
+ * Initialization of datatables, Updates data to table
+ * @param {2D Array} dataSet Each row represents row of actual html table
+ */
 function updateDataTable(dataSet){
-    //console.log(dataSet);
     // Sample Data to be received (Number of items in each row should match the columns)
     // let dataSet = [
     //      ["Sun Apr 11, 2021", "Sat Apr 17, 2021", "200", "$ 200", "$ 100","y" ],

@@ -22,18 +22,9 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-database.js"></script>
-    <script>
-    var firebaseConfig = {
-      apiKey: "AIzaSyD2yB4qlzyyBs1lMM29qLxIvMocZ2vWT2g",
-      authDomain: "mynumbergame-pro.firebaseapp.com",
-      databaseURL: "https://mynumbergame-pro-default-rtdb.firebaseio.com",
-      projectId: "mynumbergame-pro",
-      storageBucket: "mynumbergame-pro.appspot.com",
-      messagingSenderId: "625975752666",
-      appId: "1:625975752666:web:70f8686c6160768e59b2e3"
-    };
-    firebase.initializeApp(firebaseConfig);
-    </script>
+    
+    <!--FIREBASE CONFIG-->
+    <Script src="./assets/firebase/firebase-config.js"></Script>
   
   </head>
 
@@ -269,11 +260,13 @@
             <div class="col-sm mb-2 mb-sm-0">
               <h1 class="page-header-title">All Stores <span id="all-stores-count" class="badge badge-soft-dark ml-2">0</span></h1>
             </div>
-          <!--
-            <div class="col-sm-auto">
-              <a class="btn btn-primary" href="./ecommerce-add-customers.html">Add customers</a>
+          
+            <!--HARD REFRESH FOR UPDATING DATA OF SESSION-->
+            <!--
+              <div class="col-sm-auto">
+              <a class="btn btn-primary" onclick="fetchAllStoresIntoSession()">REFRESH</a>
             </div>
-          -->
+            -->
           </div>
         </div>
         <!-- End Page Header -->

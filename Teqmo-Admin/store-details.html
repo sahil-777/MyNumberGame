@@ -22,16 +22,16 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-database.js"></script>
     <script>
-    var firebaseConfig = {
-      apiKey: "AIzaSyD2yB4qlzyyBs1lMM29qLxIvMocZ2vWT2g",
-      authDomain: "mynumbergame-pro.firebaseapp.com",
-      databaseURL: "https://mynumbergame-pro-default-rtdb.firebaseio.com",
-      projectId: "mynumbergame-pro",
-      storageBucket: "mynumbergame-pro.appspot.com",
-      messagingSenderId: "625975752666",
-      appId: "1:625975752666:web:70f8686c6160768e59b2e3"
-    };
-    firebase.initializeApp(firebaseConfig);
+      var firebaseConfig = {
+        apiKey: "AIzaSyBFwJkHQHb4IuU0Xuloba3d9FSZayB1eqw",
+        authDomain: "numberpredictor-prd.firebaseapp.com",
+        databaseURL: "https://numberpredictor-prd-default-rtdb.firebaseio.com",
+        projectId: "numberpredictor-prd",
+        storageBucket: "numberpredictor-prd.appspot.com",
+        messagingSenderId: "333354525993",
+        appId: "1:333354525993:web:b8b713f2e609d9c545c338"
+      };
+      firebase.initializeApp(firebaseConfig);
     </script>
 
   </head>
@@ -295,13 +295,69 @@
                       <h3 id="store-owner-name" class="mb-0 mr-3"></h3>
                     </div>
 
-                    <!--<span class="font-size-sm">Customer for 3 months</span>
-                    -->
+                    <span class="font-size-sm">Customer for 3 months</span>
+                    
                     </div>
                 </div>
               </div>
             </div>
             <!-- End Name Card -->
+        
+            <!-- Report cards -->
+        <div class="card card-body mb-3 mb-lg-5">
+          <div class="row gx-lg-4">
+            <div class="col-sm-6 col-lg-3">
+              <div class="media">
+                <div class="media-body">
+                  <h4 class="card-subtitle">Total Players</h4>
+                  <span class="card-title h1" id="total-count">Loading...</span>
+                </div>
+                <span class="icon icon-sm icon-soft-secondary icon-circle ml-3">
+                  <i class="tio-group-equal"></i>
+                </span>
+              </div>
+              <div class="d-lg-none"><hr></div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 column-divider-sm">
+              <div class="media">
+                <div class="media-body">
+                  <h4 class="card-subtitle">Total <br> Sales</h4>
+                  <span class="card-title h1" id="total-sales">Loading...</span>
+                </div>
+                <span class="icon icon-sm icon-soft-secondary icon-circle ml-3">
+                  <i class="tio-savings"></i>
+                </span>
+              </div>
+              <div class="d-lg-none"><hr></div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 column-divider-lg">
+              <div class="media">
+                <div class="media-body">
+                  <h4 class="card-subtitle">Total Commission</h4>
+                  <span class="card-title h1" id="total-commission">Loading...</span>
+                </div>
+                <span class="icon icon-sm icon-soft-secondary icon-circle ml-3">
+                  <i class="tio-receipt-outlined"></i>
+                </span>
+              </div>
+              <div class="d-sm-none"><hr></div>
+            </div>
+            <div class="col-sm-6 col-lg-3 column-divider-sm">
+              <div class="media">
+                <div class="media-body">
+                  <h4 class="card-subtitle">Total Profit</h4>
+                  <span class="card-title h1" id="total-profit">Loading...</span>
+                </div>
+                <span class="icon icon-sm icon-soft-secondary icon-circle ml-3">
+                  <i class="tio-dollar"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Report Cards -->
 
             <!-- Card -->
             <div class="card mb-3 mb-lg-5">
@@ -437,82 +493,52 @@
           <div class="col-lg-4">
             <!-- Card -->
             <div class="card mb-3 mb-lg-5">
-              <!-- Body -->
-              <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
-                  <h5>Contact info</h5>
-                  <a class="link" href="javascript:;">Edit</a>
-                </div>
-                
-                <ul id="contact-info" class="list-unstyled list-unstyled-py-2">
-                  <!--SAMPLE CONTACT INFO
-                  <li>
-                    <i class="tio-online mr-2"></i>
-                    anne@example.com
-                  </li>
-                  <li>
-                    <i class="tio-android-phone-vs mr-2"></i>
-                    +1 (609) 972-22-22
-                  </li>
-                -->
-                </ul>
-
-                <hr>
-
-                <div class="d-flex justify-content-between align-items-center">
-                  <h5>Shipping address</h5>
-                  <a class="link" href="javascript:;">Edit</a>
-                </div>
-
-                <!-- Leaflet (Map) -->
-                <div id="map" class="leaflet-custom rounded mt-1 mb-3" style="min-height: 10rem;"
-                     data-hs-leaflet-options='{
-                       "map": {
-                         "scrollWheelZoom": false,
-                         "coords": [37.4040344, -122.0289704]
-                       },
-                       "marker": [
-                         {
-                           "coords": [37.4040344, -122.0289704],
-                           "icon": {
-                             "iconUrl": "./assets/svg/map-pin.svg",
-                             "iconSize": [50, 45]
-                           },
-                           "popup": {
-                             "text": "153 Williamson Plaza, Maggieberg"
-                           }
-                         }
-                       ]
-                      }'></div>
-                <!-- End Leaflet (Map) -->
-
-                <span class="d-block">
-                  45 Roker Terrace<br>
-                  Latheronwheel<br>
-                  KW5 8NW, London<br>
-                  UK <img class="avatar avatar-xss avatar-circle ml-1" src="./assets/vendor/flag-icon-css/flags/1x1/gb.svg" alt="Great Britain Flag">
-                </span>
-
-                <hr>
-
-                <div class="d-flex justify-content-between align-items-center">
-                  <h5>Billing address</h5>
-                  <a class="link" href="javascript:;">Edit</a>
-                </div>
-
-                <span class="d-block">
-                  45 Roker Terrace<br>
-                  Latheronwheel<br>
-                  KW5 8NW, London<br>
-                  UK <img class="avatar avatar-xss avatar-circle ml-1" src="./assets/vendor/flag-icon-css/flags/1x1/gb.svg" alt="Great Britain Flag">
-                </span>
-                
-                <div class="mt-3">
-                  <h5 class="mb-0">Mastercard</h5>
-                  <span class="d-block">Card Number: ************4291</span>
-                </div>
-              </div>
-              <!-- End Body -->
+                               <!-- Header -->
+                               <div class="card-header">
+                                <h2 class="card-header-title h5">Profile</h2>
+            
+                              <!--  <a class="btn btn-sm btn-white" href="account-settings.html">Edit</a>
+                              -->
+                              </div>
+                              <!-- End Header -->
+            
+                                <!-- Body -->
+                                <div class="card-body">
+                                  <ul class="list-unstyled list-unstyled-py-3 text-dark mb-3">
+                                    <li class="py-0">
+                                      <small class="card-subtitle">About</small>
+                                    </li>
+                                    <div id="store-info"></div>
+                                    <!--Store Info-->
+                                    <!--
+                                    <li>
+                                      <i class="tio-user-outlined nav-icon"></i>
+                                      Mark Williams
+                                    </li>
+                                    <li>
+                                      <i class="tio-briefcase-outlined nav-icon"></i>
+                                      No department title
+                                    </li>
+                                    <li>
+                                      <i class="tio-city nav-icon"></i>
+                                      Pixeel Ltd.
+                                    </li>
+                                    -->
+                                    <li class="pt-2 pb-0">
+                                      <small class="card-subtitle">Contacts</small>
+                                    </li>
+                                    <div id="contact-info"></div>
+                                    <!--<li>
+                                      <i class="tio-online nav-icon"></i>
+                                      email
+                                    </li>
+                                    <li>
+                                      <i class="tio-android-phone-vs nav-icon"></i>
+                                      contact no
+                                    </li>-->
+                                  </ul>
+                                </div>
+                                <!-- End Body -->
             </div>
             <!-- End Card --> 
           </div>
