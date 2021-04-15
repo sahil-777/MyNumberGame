@@ -12,7 +12,7 @@
           "04" : {
             "07" : {
               "2Afternoon" : {
-                "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+                "5NRlQnIpAUPJO4F7PJphNniwejk1" : {
                   "-MXWjP_hN0lQQx3sEXke" : "123,254,542,434,545",
                   "-MXWjTcx3NaeOo7D5ZcB" : "1,254,354,434,542"
                 },
@@ -24,7 +24,7 @@
             },
             "14" : {
               "2Afternoon" : {
-                "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+                "5NRlQnIpAUPJO4F7PJphNniwejk1" : {
                   "-MXXBHAK0TiSqRzkuWag" : "1,2,3,4,5",
                   "-MXXBLbR2JbeZ5FNaiKq" : "1,2,3,4,5"
                 }
@@ -32,7 +32,7 @@
             },
             "15" : {
               "3Evening" : {
-                "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+                "5NRlQnIpAUPJO4F7PJphNniwejk1" : {
                   "-MXXV5YadhQn_9x2xP-P" : "1,2,3,4,5"
                 }
               }
@@ -45,7 +45,7 @@
           "04" : {
             "07" : {
               "2Afternoon" : {
-                "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+                "5NRlQnIpAUPJO4F7PJphNniwejk1" : {
                   "-MXWjViKdXsKJgBqsUw9" : "1,2,3,4,5"
                 }
               }
@@ -55,116 +55,396 @@
       }
     },
     "Stores" : {
-      "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
+      "5NRlQnIpAUPJO4F7PJphNniwejk1" : {
         "Payment" : {
-          "totalCommission" : 4100,
-          "totalSales" : 9700,
-          "week1" : {
+          "Weeks" : [ null, {
             "billStatus" : 2,
             "commission" : 400,
-            "counter" : [ 76, 92, 57, 69, 91, 23, 158 ],
-            "sales" : 1500
-          },
-          "week10" : {
-            "billStatus" : 0,
-            "commission" : 250,
             "counter" : [ 27, 52, 154, 121, 48, 74, 58 ],
-            "sales" : 700
-          },
-          "week2" : {
+            "sales" : 1500
+          }, {
             "billStatus" : 2,
             "commission" : 450,
-            "counter" : [ 27, 54, 121, 52, 93, 100, 127 ],
+            "counter" : [ 27, 54, 121, 60, 93, 100, 127 ],
             "sales" : 850
-          },
-          "week3" : {
+          }, {
             "billStatus" : 2,
             "commission" : 500,
             "counter" : [ 12, 85, 45, 47, 147, 14, 15 ],
             "sales" : 950
-          },
-          "week4" : {
+          }, {
             "billStatus" : 2,
             "commission" : 350,
             "counter" : [ 52, 93, 100, 127, 84, 75, 62 ],
             "sales" : 650
-          },
-          "week5" : {
+          }, {
             "billStatus" : 2,
             "commission" : 400,
             "counter" : [ 47, 12, 16, 24, 51, 75, 89 ],
             "sales" : 800
-          },
-          "week6" : {
+          }, {
             "billStatus" : 2,
             "commission" : 200,
             "counter" : [ 95, 85, 14, 56, 32, 14, 41 ],
             "sales" : 450
-          },
-          "week7" : {
+          }, {
             "billStatus" : 2,
             "commission" : 450,
             "counter" : [ 25, 15, 42, 63, 58, 45, 75 ],
             "sales" : 1200
-          },
-          "week8" : {
+          }, {
             "billStatus" : 1,
             "commission" : 450,
             "counter" : [ 63, 45, 85, 47, 12, 34, 65 ],
             "sales" : 1150
-          },
-          "week9" : {
+          }, {
             "billStatus" : 1,
             "commission" : 650,
             "counter" : [ 102, 14, 52, 75, 81, 56, 147 ],
             "sales" : 1450
-          }
+          }, {
+            "billStatus" : 0,
+            "commission" : 250,
+            "counter" : [ 27, 52, 154, 121, 48, 74, 58 ],
+            "sales" : 700
+          } ],
+          "totalCommission" : 4100,
+          "totalSales" : 9700
         },
+        "Screens" : [ null, {
+          "lockUnlock" : 0,
+          "loggedinStatus" : 0
+        }, {
+          "lockUnlock" : 0,
+          "loggedinStatus" : 1
+        } ],
         "details" : {
-          "Address" : "California",
-          "Name" : "George",
-          "PhoneNumber" : "123456789"
+          "Address" : "Address line one Address line two",
+          "City" : "Pasedena",
+          "CompanyName" : "Italy",
+          "Email" : "rahul@gandhi.com",
+          "OwnerName" : "Rahul Gandhi",
+          "Phone" : "+6(969)696-96-96",
+          "State" : "California",
+          "StoreName" : "Congress",
+          "Zipcode" : "456 789"
+        }
+      },
+      "UID1" : {
+        "Payment" : {
+          "Weeks" : [ {
+            "billStatus" : 0,
+            "commission" : 0,
+            "sales" : 1500
+          }, {
+            "billStatus" : 2,
+            "commission" : 400,
+            "counter" : [ 27, 52, 154, 121, 48, 74, 58 ],
+            "sales" : 1500
+          }, {
+            "billStatus" : 2,
+            "commission" : 450,
+            "counter" : [ 27, 54, 121, 52, 93, 100, 127 ],
+            "sales" : 850
+          }, {
+            "billStatus" : 2,
+            "commission" : 500,
+            "counter" : [ 12, 85, 45, 47, 147, 14, 15 ],
+            "sales" : 950
+          }, {
+            "billStatus" : 2,
+            "commission" : 350,
+            "counter" : [ 52, 93, 100, 127, 84, 75, 62 ],
+            "sales" : 650
+          }, {
+            "billStatus" : 2,
+            "commission" : 400,
+            "counter" : [ 47, 12, 16, 24, 51, 75, 89 ],
+            "sales" : 800
+          }, {
+            "billStatus" : 2,
+            "commission" : 200,
+            "counter" : [ 95, 85, 14, 56, 32, 14, 41 ],
+            "sales" : 450
+          }, {
+            "billStatus" : 2,
+            "commission" : 450,
+            "counter" : [ 25, 15, 42, 63, 58, 45, 75 ],
+            "sales" : 1200
+          }, {
+            "billStatus" : 1,
+            "commission" : 450,
+            "counter" : [ 63, 45, 85, 47, 12, 34, 65 ],
+            "sales" : 1150
+          }, {
+            "billStatus" : 1,
+            "commission" : 650,
+            "counter" : [ 102, 14, 52, 75, 81, 56, 147 ],
+            "sales" : 1450
+          }, {
+            "billStatus" : 0,
+            "commission" : 250,
+            "counter" : [ 27, 52, 154, 121, 48, 74, 58 ],
+            "sales" : 700
+          } ],
+          "totalCommission" : 4100,
+          "totalSales" : 9700
         },
-        "screen1" : {
+        "Screens" : [ null, {
           "lockUnlock" : 1,
           "loggedinStatus" : 0
-        },
-        "screen2" : {
+        }, {
           "lockUnlock" : 1,
           "loggedinStatus" : 0
+        } ],
+        "details" : {
+          "Address" : "Address line one Address line two",
+          "City" : "Pasedena",
+          "CompanyName" : "Italy",
+          "Email" : "rahul@gandhi.com",
+          "OwnerName" : "Rahul Gandhi",
+          "Phone" : "+6(969)696-96-96",
+          "State" : "California",
+          "StoreName" : "Congress",
+          "Zipcode" : "456 789"
+        }
+      },
+      "UID2" : {
+        "Payment" : {
+          "Weeks" : [ {
+            "billStatus" : 0,
+            "commission" : 0,
+            "sales" : 1500
+          }, {
+            "billStatus" : 2,
+            "commission" : 400,
+            "counter" : [ 27, 52, 154, 121, 48, 74, 58 ],
+            "sales" : 1500
+          }, {
+            "billStatus" : 2,
+            "commission" : 450,
+            "counter" : [ 27, 54, 121, 52, 93, 100, 127 ],
+            "sales" : 850
+          }, {
+            "billStatus" : 2,
+            "commission" : 500,
+            "counter" : [ 12, 85, 45, 47, 147, 14, 15 ],
+            "sales" : 950
+          }, {
+            "billStatus" : 2,
+            "commission" : 350,
+            "counter" : [ 52, 93, 100, 127, 84, 75, 62 ],
+            "sales" : 650
+          }, {
+            "billStatus" : 2,
+            "commission" : 400,
+            "counter" : [ 47, 12, 16, 24, 51, 75, 89 ],
+            "sales" : 800
+          }, {
+            "billStatus" : 2,
+            "commission" : 200,
+            "counter" : [ 95, 85, 14, 56, 32, 14, 41 ],
+            "sales" : 450
+          }, {
+            "billStatus" : 2,
+            "commission" : 450,
+            "counter" : [ 25, 15, 42, 63, 58, 45, 75 ],
+            "sales" : 1200
+          }, {
+            "billStatus" : 1,
+            "commission" : 450,
+            "counter" : [ 63, 45, 85, 47, 12, 34, 65 ],
+            "sales" : 1150
+          }, {
+            "billStatus" : 1,
+            "commission" : 650,
+            "counter" : [ 102, 14, 52, 75, 81, 56, 147 ],
+            "sales" : 1450
+          }, {
+            "billStatus" : 0,
+            "commission" : 250,
+            "counter" : [ 27, 52, 154, 121, 48, 74, 58 ],
+            "sales" : 700
+          } ],
+          "totalCommission" : 4100,
+          "totalSales" : 9700
+        },
+        "Screens" : [ null, {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        }, {
+          "lockUnlock" : 1,
+          "loggedinStatus" : 0
+        } ],
+        "details" : {
+          "Address" : "Address line one Address line two",
+          "City" : "Pasedena",
+          "CompanyName" : "Italy",
+          "Email" : "rahul@gandhi.com",
+          "OwnerName" : "Rahul Gandhi",
+          "Phone" : "+6(969)696-96-96",
+          "State" : "California",
+          "StoreName" : "Congress",
+          "Zipcode" : "456 789"
         }
       }
     },
     "Winners" : {
-      "OHatm0qKa2Rf3DFnAj1Vq64Fcn62" : {
-        "3digit" : {
-          "2021-04-07" : {
-            "2Afternoon" : {
-              "ActualNumber" : "254",
-              "Permutations" : "254,542,542"
-            }
+      "5NRlQnIpAUPJO4F7PJphNniwejk1" : {
+        "2021-04-07" : [ null, {
+          "3" : {
+            "predictions" : "145,514",
+            "winNum" : "541"
           },
-          "2021-04-08" : {
-            "3Evening" : {
-              "ActualNumber" : "548",
-              "Permutations" : "845,584"
-            }
+          "4" : {
+            "predictions" : "1845,5184",
+            "winNum" : "5481"
           }
-        },
-        "4digit" : {
-          "2021-04-07" : {
-            "2Afternoon" : {
-              "ActualNumber" : "2154",
-              "Permutations" : "2154,1542,4521"
-            }
+        } ],
+        "2021-04-08" : [ null, {
+          "3" : {
+            "predictions" : "145,514",
+            "winNum" : "541"
           },
-          "2021-04-08" : {
-            "1Morning" : {
-              "ActualNumber" : "5481",
-              "Permutations" : "1845,5184"
-            }
+          "4" : {
+            "predictions" : "1845,5184",
+            "winNum" : "5481"
           }
-        }
+        } ],
+        "2021-04-09" : [ null, {
+          "3" : {
+            "predictions" : "145,514",
+            "winNum" : "541"
+          },
+          "4" : {
+            "predictions" : "1845,5184",
+            "winNum" : "5481"
+          }
+        } ],
+        "2021-04-10" : [ null, {
+          "3" : {
+            "predictions" : "145,514",
+            "winNum" : "541"
+          },
+          "4" : {
+            "predictions" : "1845,5184",
+            "winNum" : "5481"
+          }
+        } ],
+        "2021-04-11" : [ null, {
+          "3" : {
+            "predictions" : "145,514",
+            "winNum" : "541"
+          },
+          "4" : {
+            "predictions" : "1845,5184",
+            "winNum" : "5481"
+          }
+        } ]
+      },
+      "UID1" : {
+        "2021-04-07" : [ null, {
+          "3" : {
+            "predictions" : "145,514",
+            "winNum" : "541"
+          },
+          "4" : {
+            "predictions" : "1845,5184",
+            "winNum" : "5481"
+          }
+        } ],
+        "2021-04-08" : [ null, {
+          "3" : {
+            "predictions" : "145,514",
+            "winNum" : "541"
+          },
+          "4" : {
+            "predictions" : "1845,5184",
+            "winNum" : "5481"
+          }
+        } ],
+        "2021-04-09" : [ null, {
+          "3" : {
+            "predictions" : "145,514",
+            "winNum" : "541"
+          },
+          "4" : {
+            "predictions" : "1845,5184",
+            "winNum" : "5481"
+          }
+        } ],
+        "2021-04-10" : [ null, {
+          "3" : {
+            "predictions" : "145,514",
+            "winNum" : "541"
+          },
+          "4" : {
+            "predictions" : "1845,5184",
+            "winNum" : "5481"
+          }
+        } ],
+        "2021-04-11" : [ null, {
+          "3" : {
+            "predictions" : "145,514",
+            "winNum" : "541"
+          },
+          "4" : {
+            "predictions" : "1845,5184",
+            "winNum" : "5481"
+          }
+        } ]
+      },
+      "UID2" : {
+        "2021-04-07" : [ null, {
+          "3" : {
+            "predictions" : "145,514",
+            "winNum" : "541"
+          },
+          "4" : {
+            "predictions" : "1845,5184",
+            "winNum" : "5481"
+          }
+        } ],
+        "2021-04-08" : [ null, {
+          "3" : {
+            "predictions" : "145,514",
+            "winNum" : "541"
+          },
+          "4" : {
+            "predictions" : "1845,5184",
+            "winNum" : "5481"
+          }
+        } ],
+        "2021-04-09" : [ null, {
+          "3" : {
+            "predictions" : "145,514",
+            "winNum" : "541"
+          },
+          "4" : {
+            "predictions" : "1845,5184",
+            "winNum" : "5481"
+          }
+        } ],
+        "2021-04-10" : [ null, {
+          "3" : {
+            "predictions" : "145,514",
+            "winNum" : "541"
+          },
+          "4" : {
+            "predictions" : "1845,5184",
+            "winNum" : "5481"
+          }
+        } ],
+        "2021-04-11" : [ null, {
+          "3" : {
+            "predictions" : "145,514",
+            "winNum" : "541"
+          },
+          "4" : {
+            "predictions" : "1845,5184",
+            "winNum" : "5481"
+          }
+        } ]
       }
     }
   }
