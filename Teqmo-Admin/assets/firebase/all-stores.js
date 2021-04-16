@@ -25,7 +25,7 @@ async function showAllStores(){
       if(snapshot.exists()){
           snapshot.forEach(Store => {
             //console.log(Store.key,Store.val());
-              let Name,Email,Commission,phoneNo;
+              let Name,Email,Commission,Sales,phoneNo;
               Store.forEach(data => {
                   if(data.key=="details"){
                        Name=data.val().OwnerName;
@@ -34,20 +34,24 @@ async function showAllStores(){
                   }
                   else if(data.key=="Payment"){
                        Commission=data.val().totalCommission;
+                       Sales=data.val().totalSales;
                   }
-                  if(typeof Name!="undefined" && typeof Email!="undefined" && typeof Commission!="undefined"){
+                  if(typeof Name!="undefined" && typeof Email!="undefined" && typeof Commission!="undefined" && typeof Sales!="undefined"){
                       let StoreUID=Store.key;
+                      let Profit=Sales-Commission;
                       Name=(Name=="")?'Name':Name;Email=(Email=="")?'Email':Email;
                       let nameHTML=`<a class="d-flex align-items-center" href="./store-details.html?storeUID=${StoreUID}">
-                                      <div class="avatar avatar-circle">
-                                        <img class="avatar-img" src="./assets/img/160x160/img10.jpg" alt="Image Description">
-                                      </div>
                                       <div class="ml-3">
-                                        <span class="h5 text-hover-primary">${Name}<i class="tio-verified text-primary" data-toggle="tooltip" data-placement="top" title="Top endorsed"></i></span>
+                                        <span class="h5 text-hover-primary">${Name}</span>
                                       </div>
-                                  </a>`;
+                                    </a>`;
+                      let linkToStore=` <a class="d-flex align-items-center" href="./store-details.html?storeUID=${StoreUID}">
+                                          <div class="ml-3">
+                                            <span ><i class="tio-user-outlined nav-icon"></i></span>
+                                          </div>
+                                        </a>`
 
-                      let tableRow=[nameHTML,Email,phoneNo,Commission];
+                      let tableRow=[nameHTML,Email,phoneNo,Sales,Commission,Profit,linkToStore];
                       listAllStores.unshift(tableRow);
                   }
               }); 
@@ -76,7 +80,10 @@ function updateDataTable(dataSet){
         { title: "Name" },
         { title: "Email" },
         { title: "Phone" },
-        { title: "Commission" }
+        { title: "Sales" },
+        { title: "Commission" },
+        { title: "Profit" },
+        { title: "View Store" }
     ],
     language: {
       zeroRecords: '<div class="text-center p-4">' +
