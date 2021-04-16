@@ -71,7 +71,7 @@ function generateBillForAllStores(){
                             //let billStatus = weekDetails.billStatus;
                             let countSum=(weekDetails.counter)?weekDetails.counter.reduce((a, b) => a + b, 0):0;
                             let Sales=countSum*fees;
-                            let Commission=(Sales*commissionRate)/100;
+                            let Commission=((Sales*commissionRate)/100).toFixed(2);//Upto two decimal places
                             updateBillValues(UID,Sales,Commission,weekNum);
                         }
                     }
