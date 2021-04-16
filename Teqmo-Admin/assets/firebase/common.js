@@ -58,3 +58,4 @@ function getDateFromWeek(weekNum,startOrEnd){
     // let year = result.getFullYear();
     return result.toString().substring(4,15)
 }
+
