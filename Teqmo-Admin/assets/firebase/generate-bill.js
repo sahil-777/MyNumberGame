@@ -11,35 +11,43 @@ $(document).on('ready', function () {
 
 // firebase.auth().onAuthStateChanged((user) => {
 //     if(user){
-//         console.log("HELLO")
-//         showGeneratedBill()
+//         listUnbilledWeeks();
 //     }
 // })
 
-showGeneratedBill();
+listUnbilledWeeks();
 
-async function showGeneratedBill() {
-    const snapshot = await firebase.database().ref(`Teqmo/Stores`).once('value')
-    const data = snapshot.val()
-    document.getElementById("select-week").innerHTML = ""
-    jQuery.each(data, function(UID,uidDetails) {
-        if (uidDetails) {
-            let check = uidDetails.Payment.Weeks
-            jQuery.each(check, function(weekNum, weekDetails) {
-                if (weekDetails) {
-                    let billStatus = weekDetails.billStatus;
-                    if (billStatus==0){
-                        let startDate = getDateFromWeek(weekNum,0);
-                        let endDate = getDateFromWeek(weekNum,1);
-                        var row = `<option value="${startDate}">${startDate} - ${endDate}</option>`
-                        document.getElementById('select-week').innerHTML += row;
-                        row = ''
-                    }
-                }
-            })
+/**
+ * Gives all the weeks, For which bill is not generated
+ */
+async function listUnbilledWeeks() {
+    const snapshot = await firebase.database().ref(`Teqmo/Details/CommissionRate`).once('value')
+    let set=new Set();
+    if(snapshot.exists()){
+        snapshot.forEach(array=>{
+            let arr=array.val().split(',');
+            for(let i=0;i<arr.length;i++){
+                set.add(parseInt(arr[i]));
+            }
+        })
+    }
+    let currentWeek=getWeekNumber(new Date(getFormattedDate(new Date())));//Current Week Number
+    
+    for(let i=1;i<currentWeek;i++){
+        if(!set.has(i)){
+            let startDate = getDateFromWeek(i,0);
+            let endDate = getDateFromWeek(i,1);
+            let row = `<option value="${startDate}">${startDate} - ${endDate}</option>`
+            document.getElementById('select-week').innerHTML += row;
+            row = ''             
         }
-    })
+    }
 }
+
+/**
+ * Generates Bills for all the stores for selected week 
+ * Commission Rate will be same for all the stores for that week
+ */
 
 function generateBillForAllStores(){
     let weekNum=getWeekNumber(new Date(document.getElementById('select-week').value));
@@ -73,6 +81,12 @@ function generateBillForAllStores(){
     });
 }
 
+/**
+ * Saves Commission rate for selected week 
+ * This can be useful to check, if bill is already generated or not for that week
+ * @param {Number} weekNum week number of selected week 
+ * @param {Number} commissionRate commission rate in %
+ */
 
 function saveCommissionRate(weekNum,commissionRate){
     firebase.database().ref(`Teqmo/Details/CommissionRate/${commissionRate}`).get().then(function(snapshot){
@@ -81,19 +95,26 @@ function saveCommissionRate(weekNum,commissionRate){
     });
 }
 
-
+/**
+ * Updates Sales,Commission values for that store for selected week
+ * Same values are used to increment total values
+ * @param {Number} storeUID UID of a store 
+ * @param {Number} Sales Sales for selected week
+ * @param {Number} Commission Commission for selected week
+ * @param {Number} weekNum Week number of selected week
+ */
 async function updateBillValues(storeUID,Sales,Commission,weekNum){
     firebase.database().ref(`Teqmo/Stores/${storeUID}/Payment/Weeks/${weekNum}`).update({
-        'billStatus':1,
+        'billStatus':1,     //1 : Generated & Unpaid
         'commission':Commission,
         'sales':Sales
     });
 
+    //Updating total 
     let totalCommission=await firebase.database().ref(`Teqmo/Stores/${storeUID}/Payment/totalCommission`).once('value');
     let totalSales=await firebase.database().ref(`Teqmo/Stores/${storeUID}/Payment/totalSales`).once('value');
     totalCommission=totalCommission.val()+Commission;
     totalSales=totalSales.val()+Sales;
-
     
     firebase.database().ref(`Teqmo/Stores/${storeUID}/Payment`).update({
         'totalCommission':totalCommission,
@@ -102,8 +123,9 @@ async function updateBillValues(storeUID,Sales,Commission,weekNum){
 
     Swal.fire({
         icon: 'success',
-        text: 'Bills generated Successfully!',
+        text: 'Bills generated Successfully!'
+    }).then(() => {
+        location.reload();
     })
-
 }
  
