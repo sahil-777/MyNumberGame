@@ -28,7 +28,7 @@ async function showAllStores(){
               let Name,Email,Commission,Sales,phoneNo;
               Store.forEach(data => {
                   if(data.key=="details"){
-                       Name=data.val().OwnerName;
+                       Name=data.val().StoreName;
                        Email=data.val().Email;
                        phoneNo=data.val().Phone;
                   }
@@ -38,7 +38,7 @@ async function showAllStores(){
                   }
                   if(typeof Name!="undefined" && typeof Email!="undefined" && typeof Commission!="undefined" && typeof Sales!="undefined"){
                       let StoreUID=Store.key;
-                      let Profit=Sales-Commission;
+                      //let Profit=Sales-Commission;
                       Name=(Name=="")?'Name':Name;Email=(Email=="")?'Email':Email;
                       let nameHTML=`<a class="d-flex align-items-center" href="./store-details.html?storeUID=${StoreUID}">
                                       <div class="ml-3">
@@ -51,7 +51,7 @@ async function showAllStores(){
                                           </div>
                                         </a>`
 
-                      let tableRow=[nameHTML,Email,phoneNo,Sales,Commission,Profit,linkToStore];
+                      let tableRow=[nameHTML,Email,phoneNo,Sales,Commission,linkToStore];
                       listAllStores.unshift(tableRow);
                   }
               }); 
@@ -77,12 +77,11 @@ function updateDataTable(dataSet){
   let datatable = $.HSCore.components.HSDatatables.init($('#datatable'), {
     data: dataSet,
     columns: [
-        { title: "Name" },
+        { title: "Store Name" },
         { title: "Email" },
         { title: "Phone" },
         { title: "Sales" },
         { title: "Commission" },
-        { title: "Profit" },
         { title: "View Store" }
     ],
     language: {
