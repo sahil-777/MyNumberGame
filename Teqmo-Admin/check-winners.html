@@ -278,7 +278,9 @@
 
               <li class="step-item">
                 <a class="step-content-wrapper" href="javascript:;"
-                   >
+                    data-hs-step-form-next-options='{
+                    "targetSelector": "#addUserStepConfirmation"
+                  }'>
                   <span class="step-icon step-icon-soft-dark">II</span>
                   <div class="step-content">
                     <span class="step-title">Winner List</span>
@@ -506,8 +508,6 @@
        </thead>
 
        <tbody>
-         
-         <tr>Loading...</tr> 
 
             <!--SAMPLE ROW
            <td class="table-column-pr-0">
@@ -620,10 +620,7 @@
 
                 <!-- Footer -->
                 <div class="card-footer d-flex align-items-center">
-                  <button type="button" class="btn btn-ghost-secondary"
-                      data-hs-step-form-prev-options='{
-                        "targetSelector": "#addUserStepProfile"
-                      }'>
+                  <button type="button" class="btn btn-ghost-secondary" onclick="location.reload();"> 
                     <i class="tio-chevron-left"></i> Previous step
                   </button>
 

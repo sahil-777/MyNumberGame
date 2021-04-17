@@ -48,10 +48,9 @@ async function checkWinners(){
         await getResult(selectedDate,1,4,afternoon4);
         await getResult(selectedDate,2,3,evening3);
         await getResult(selectedDate,2,4,evening4);
-
-        updateWinnersTable();
+        console.log(tableData)
+        updateWinnersTable(tableData);
     }
-
     
 }
 
@@ -173,48 +172,48 @@ async function getResult(date,shift,digit,winningNumber){
     }
 }
  
-async function updateWinnersTable(){
-    let dataSet=tableData;
+function updateWinnersTable(dataSet){
     console.log(dataSet);
     // Sample Data to be received (Number of items in each row should match the columns)
     // let dataSet = [
     //      ["Name with HTML tags,attributes", "s1@gmail.com", "9847473823", "$ 200"],
     //      ["Name with HTML tags,attributes", "s3@gmail.com", "2334453556", "$ 300"]
     //  ]
+    //dataSet=[["5/41/2255","Mor","Te3","Stire","125","123,453","7"]];
   
-    // let datatable = $.HSCore.components.HSDatatables.init($('#datatable'), {
-    //   data: dataSet,
-    //   columns: [
-    //       { title: "Date" },
-    //       { title: "Shift" },
-    //       { title: "Game" },
-    //       { title: "Store" },
-    //       { title: "Actual Number" },
-    //       { title: "Winning Numbers" },
-    //       { title: "Count" }
-    //   ],
-    //   language: {
-    //     zeroRecords: '<div class="text-center p-4">' +
-    //         '<img class="mb-3" src="./assets/svg/illustrations/sorry.svg" alt="Image Description" style="width: 7rem;">' +
-    //         '<p class="mb-0">No data to show</p>' +
-    //         '</div>'
-    //   }
-    // });
+    let datatable = $.HSCore.components.HSDatatables.init($('#datatable'), {
+      data: dataSet,
+      columns: [
+          { title: "Date2" },
+          { title: "Shift" },
+          { title: "Game" },
+          { title: "Store" },
+          { title: "Actual Number" },
+          { title: "Winning Numbers" },
+          { title: "Count" }
+      ],
+      language: {
+        zeroRecords: '<div class="text-center p-4">' +
+            '<img class="mb-3" src="./assets/svg/illustrations/sorry.svg" alt="Image Description" style="width: 7rem;">' +
+            '<p class="mb-0">No data to show</p>' +
+            '</div>'
+      }
+    });
   
-    // // Initialise search on table
-    // $('#datatableSearch').on('mouseup', function (e) {
-    //   var $input = $(this),
-    //     oldValue = $input.val();
+    // Initialise search on table
+    $('#datatableSearch').on('mouseup', function (e) {
+      var $input = $(this),
+        oldValue = $input.val();
   
-    //   if (oldValue == "") return;
+      if (oldValue == "") return;
   
-    //   setTimeout(function(){
-    //     var newValue = $input.val();
+      setTimeout(function(){
+        var newValue = $input.val();
   
-    //     if (newValue == ""){
-    //       // Gotcha
-    //       datatable.search('').draw();
-    //     }
-    //   }, 1);
-    // });
+        if (newValue == ""){
+          // Gotcha
+          datatable.search('').draw();
+        }
+      }, 1);
+    });
 }
