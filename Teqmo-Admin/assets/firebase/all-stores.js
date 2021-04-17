@@ -45,11 +45,9 @@ async function showAllStores(){
                                         <span class="h5 text-hover-primary">${Name}</span>
                                       </div>
                                     </a>`;
-                      let linkToStore=` <a class="d-flex align-items-center" href="./store-details.html?storeUID=${StoreUID}">
-                                          <div class="ml-3">
-                                            <span ><i class="tio-user-outlined nav-icon"></i></span>
-                                          </div>
-                                        </a>`
+                      let linkToStore=` <a class="btn btn-sm btn-white" href="./store-details.html?storeUID=${StoreUID}"  >
+                                        <i class="tio-receipt-outlined mr-1"></i> View More
+                                        </a>`;
 
                       let tableRow=[nameHTML,Email,phoneNo,Sales,Commission,linkToStore];
                       listAllStores.unshift(tableRow);
