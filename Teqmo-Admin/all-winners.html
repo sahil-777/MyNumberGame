@@ -15,6 +15,26 @@
     <link rel="stylesheet" href="./assets/vendor/icon-set/style.css">
     <!-- CSS Front Template -->
     <link rel="stylesheet" href="./assets/css/theme.min.css">
+
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBFwJkHQHb4IuU0Xuloba3d9FSZayB1eqw",
+        authDomain: "numberpredictor-prd.firebaseapp.com",
+        databaseURL: "https://numberpredictor-prd-default-rtdb.firebaseio.com",
+        projectId: "numberpredictor-prd",
+        storageBucket: "numberpredictor-prd.appspot.com",
+        messagingSenderId: "333354525993",
+        appId: "1:333354525993:web:b8b713f2e609d9c545c338"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
   </head>
 
   <body class="footer-offset has-navbar-vertical-aside navbar-vertical-aside-show-xl">
@@ -34,7 +54,7 @@
           <!-- End Navbar Vertical Toggle -->
         </div>
 
-        <!-- Secondary Content -->
+       <!-- Secondary Content -->
         <div class="navbar-nav-wrap-content-right">
           <!-- Navbar -->
           <ul class="navbar-nav align-items-center flex-row">
@@ -48,7 +68,7 @@
                     "type": "css-animation"
                   }'>
                   <div class="avatar avatar-sm avatar-circle">
-                    <img class="avatar-img" src="./assets/img/160x160/img6.jpg" alt="Image Description">
+                    <img class="avatar-img" src="./assets/img/160x160/img6.jpg" id="profileImage">
                     <span class="avatar-status avatar-sm-status avatar-status-success"></span>
                   </div>
                 </a>
@@ -60,26 +80,26 @@
                         <img class="avatar-img" src="./assets/img/160x160/img6.jpg" alt="Image Description">
                       </div>
                       <div class="media-body">
-                        <span class="card-title h5">Mark Williams</span>
-                        <span class="card-text">mark@example.com</span>
+                        <span class="card-title h5" id="profileName">Welcome</span>
+                        <span class="card-text" id="profileEmail">welcome@example.com</span>
                       </div>
                     </div>
                   </div>
 
                   <div class="dropdown-divider"></div>
 
-                  <a class="dropdown-item" href="#">
-                    <span class="text-truncate pr-2" title="Profile &amp; account">Profile &amp; account</span>
+                  <a class="dropdown-item" href="profile.html">
+                    <span class="text-truncate pr-2">Profile details</span>
                   </a>
 
-                  <a class="dropdown-item" href="#">
+                  <!-- <a class="dropdown-item" href="#">
                     <span class="text-truncate pr-2" title="Settings">Settings</span>
-                  </a>
+                  </a> -->
 
                   <div class="dropdown-divider"></div>
 
                   <a class="dropdown-item" href="#">
-                    <span class="text-truncate pr-2" title="Sign out">Sign out</span>
+                    <span class="text-truncate pr-2" title="Sign out" onclick="logout()">Sign out</span>
                   </a>
                 </div>
               </div>
@@ -89,9 +109,12 @@
           <!-- End Navbar -->
         </div>
         <!-- End Secondary Content -->
+
       </div>
     </header>
     <!-- Header Ends -->
+
+*/
 
     <!-- SideBar Starts -->
     <aside class="js-navbar-vertical-aside navbar navbar-dark navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl navbar-bordered  ">
@@ -240,16 +263,7 @@
           <div class="page-header page-header-light">
             <div class="row align-items-center">
               <div class="col">
-                <h1 class="page-header-title">🏆 Winners from this Store 🏆 </h1>
-              </div>
-
-              <div class="col-auto">
-                <!-- Daterangepicker -->
-                <button id="js-daterangepicker-predefined" class="btn btn-sm btn-ghost-light dropdown-toggle">
-                  <i class="tio-date-range"></i>
-                  <span class="js-daterangepicker-predefined-preview ml-1"></span>
-                </button>
-                <!-- End Daterangepicker -->
+                <h1 class="page-header-title">🏆 Winners from All Store 🏆 </h1>
               </div>
             </div>
             <!-- End Row -->
@@ -268,70 +282,13 @@
             <div class="row justify-content-between align-items-center flex-grow-1">
               <div class="col-12 col-md">
                 <div class="d-flex justify-content-between align-items-center">
-                  <h5 class="card-header-title">Winners</h5>
-
-                  <!-- Datatable Info -->
-                  <div id="datatableCounterInfo" style="display: none;">
-                    <div class="d-flex align-items-center">
-                      <span class="font-size-sm mr-3">
-                        <span id="datatableCounter">0</span>
-                        Selected
-                      </span>
-                      <a class="btn btn-sm btn-outline-danger" href="javascript:;">
-                        <i class="tio-delete-outlined"></i> Delete
-                      </a>
-                    </div>
-                  </div>
-                  <!-- End Datatable Info -->
+                  <h3 class="card-header-title">All Winners 🎉</h3>
                 </div>
               </div>
 
               <div class="col-auto">
                 <!-- Filter -->
                 <div class="row align-items-sm-center">
-                  <div class="col-sm-auto">
-                    <div class="d-flex align-items-center mr-2">
-                      <span class="text-secondary mr-2">Status:</span>
-
-                      <!-- Select -->
-                      <select class="js-select2-custom js-datatable-filter custom-select-sm" size="1" style="opacity: 0;"
-                              data-target-column-index="2"
-                              data-hs-select2-options='{
-                                "minimumResultsForSearch": "Infinity",
-                                "customClass": "custom-select custom-select-sm custom-select-borderless",
-                                "dropdownAutoWidth": true,
-                                "width": true
-                              }'>
-                        <option value="">All</option>
-                        <option value="successful">Successful</option>
-                        <option value="overdue">Overdue</option>
-                        <option value="pending">Pending</option>
-                      </select>
-                      <!-- End Select -->
-                    </div>
-                  </div>
-
-                  <div class="col-sm-auto">
-                    <div class="d-flex align-items-center mr-2">
-                      <span class="text-secondary mr-2">Signed up:</span>
-
-                      <!-- Select -->
-                      <select class="js-select2-custom js-datatable-filter custom-select-sm" size="1" style="opacity: 0;"
-                              data-target-column-index="5"
-                              data-hs-select2-options='{
-                                "minimumResultsForSearch": "Infinity",
-                                "customClass": "custom-select custom-select-sm custom-select-borderless",
-                                "dropdownAutoWidth": true,
-                                "width": true
-                              }'>
-                        <option value="">All</option>
-                        <option value="1 year ago">1 year ago</option>
-                        <option value="6 months ago">6 months ago</option>
-                      </select>
-                      <!-- End Select -->
-                    </div>
-                  </div>
-
                   <div class="col-md">
                     <form>
                       <!-- Search -->
@@ -354,11 +311,11 @@
           <!-- End Header -->
 
           <!-- Table -->
-          <div class="table-responsive datatable-custom">
-            <table id="datatable" class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table"
+          <div class="table-responsive datatable-custom text-center">
+            <table id="datatable" class="table table-hover table-borderless table-nowrap table-align-middle card-table"
                    data-hs-datatables-options='{
                      "columnDefs": [{
-                        "targets": [4,5],
+                        "targets": [1],
                         "orderable": false
                       }],
                      "order": [],
@@ -368,16 +325,16 @@
                      "search": "#datatableSearch",
                      "entries": "#datatableEntries",
                      "pageLength": 8,
-                     "isResponsive": false,
+                     "isResponsive": true,
                      "isShowPaging": false,
                      "pagination": "datatablePagination"
                    }'>
-              <thead class="thead-light">
+              <thead class="thead-dark">
                 <tr>
                   <th>Date</th>
                   <th>Shift</th>
                   <th>Game</th>
-                  <th>Store</th>
+                  <th>Store Name</th>
                   <th>Actual Number</th>
                   <th>Winning Numbers</th>
                   <th>Count</th>
@@ -386,40 +343,13 @@
 
               <tbody id="tableBody">
                 <tr>
-                  <td>Apr 11 2021</td>
-                  <td>Morning</td>
-                  <td>TEQMO3</td>
-                  <td>Bhagyesh's Store</td>
-                  <td>125</td>
-                  <td>521, 215</td>
-                  <td>2</td>
-                </tr>
-                <tr>
-                  <td>Apr 11 2021</td>
-                  <td>Evening</td>
-                  <td>TEQMO4</td>
-                  <td>Tony Stark's Store</td>
-                  <td>2163</td>
-                  <td>6132, 3621, 1236</td>
-                  <td>3</td>
-                </tr>
-                <tr>
-                  <td>Apr 12 2021</td>
-                  <td>Afternoon</td>
-                  <td>TEQMO4</td>
-                  <td>Black Widow Store</td>
-                  <td>5468</td>
-                  <td>6458, 8465, 5846</td>
-                  <td>3</td>
-                </tr>
-                <tr>
-                  <td>Apr 13 2021</td>
-                  <td>Morning</td>
-                  <td>TEQMO4</td>
-                  <td>Wonder Woman Store</td>
-                  <td>349</td>
-                  <td>394</td>
-                  <td>1</td>
+                  <td></td>
+                  <td>Please</td>
+                  <td>Wait</td>
+                  <td>Loading</td>
+                  <td>Data</td>
+                  <td></td>
+                  <td></td>
                 </tr>
               </tbody>
             </table>
@@ -432,7 +362,7 @@
             <div class="row justify-content-center justify-content-sm-between align-items-sm-center">
               <div class="col-sm mb-2 mb-sm-0">
                 <div class="d-flex justify-content-center justify-content-sm-start align-items-center">
-                  <span class="mr-2">Showing:</span>
+                  <span class="mr-2">Show per page:</span>
 
                   <!-- Select -->
                   <select id="datatableEntries" class="js-select2-custom"
@@ -506,29 +436,14 @@
     <!-- JS Front -->
     <script src="./assets/js/theme.min.js"></script>
 
+    <script src="./assets/firebase/auth.js"></script>
+    <script src="./assets/firebase/common.js"></script>
+    <!-- <script src="./assets/firebase/sales-report.js"></script> -->
+    <script src="./assets/firebase/winners.js"></script>
+
     <!-- JS Plugins Init. -->
     <script>
       $(document).on('ready', function () {
-        // INITIALIZATION OF DATATABLES
-        // =======================================================
-        var datatable = $.HSCore.components.HSDatatables.init($('#datatable'), {
-          select: {
-            style: 'multi',
-            selector: 'td:first-child input[type="checkbox"]',
-            classMap: {
-              checkAll: '#datatableCheckAll',
-              counter: '#datatableCounter',
-              counterInfo: '#datatableCounterInfo'
-            }
-          },
-          language: {
-            zeroRecords: '<div class="text-center p-4">' +
-                '<img class="mb-3" src="./assets/svg/illustrations/sorry.svg" alt="Image Description" style="width: 7rem;">' +
-                '<p class="mb-0">No data to show</p>' +
-                '</div>'
-          }
-        });
-
         $('.js-datatable-filter').on('change', function() {
           var $this = $(this),
             elVal = $this.val(),
@@ -572,79 +487,71 @@
         
         // INITIALIZATION OF NAVBAR VERTICAL NAVIGATION
         // =======================================================
-        var sidebar = $('.js-navbar-vertical-aside').hsSideNav();
+        // var sidebar = $('.js-navbar-vertical-aside').hsSideNav();
 
         
         // INITIALIZATION OF TOOLTIP IN NAVBAR VERTICAL MENU
         // =======================================================
-        $('.js-nav-tooltip-link').tooltip({ boundary: 'window' })
+        // $('.js-nav-tooltip-link').tooltip({ boundary: 'window' })
 
-        $(".js-nav-tooltip-link").on("show.bs.tooltip", function(e) {
-          if (!$("body").hasClass("navbar-vertical-aside-mini-mode")) {
-            return false;
-          }
-        });
+        // $(".js-nav-tooltip-link").on("show.bs.tooltip", function(e) {
+        //   if (!$("body").hasClass("navbar-vertical-aside-mini-mode")) {
+        //     return false;
+        //   }
+        // });
 
-        
-        // INITIALIZATION OF UNFOLD
-        // =======================================================
-        $('.js-hs-unfold-invoker').each(function () {
-          var unfold = new HSUnfold($(this)).init();
-        });
-
-        
         // INITIALIZATION OF FORM SEARCH
         // =======================================================
-        $('.js-form-search').each(function () {
-          new HSFormSearch($(this)).init()
-        });
+        // $('.js-form-search').each(function () {
+        //   new HSFormSearch($(this)).init()
+        // });
 
         
         // INITIALIZATION OF FILE ATTACH
         // =======================================================
-        $('.js-file-attach').each(function () {
-          var customFile = new HSFileAttach($(this)).init();
-        });
+        // $('.js-file-attach').each(function () {
+        //   var customFile = new HSFileAttach($(this)).init();
+        // });
 
         
         // INITIALIZATION OF STEP FORM
         // =======================================================
-        $('.js-step-form').each(function () {
-          var stepForm = new HSStepForm($(this), {
-            finish: function() {
-              $("#addUserStepFormProgress").hide();
-              $("#addUserStepFormContent").hide();
-              $("#successMessageContent").show();
-            }
-          }).init();
-        });
+        // $('.js-step-form').each(function () {
+        //   var stepForm = new HSStepForm($(this), {
+        //     finish: function() {
+        //       $("#addUserStepFormProgress").hide();
+        //       $("#addUserStepFormContent").hide();
+        //       $("#successMessageContent").show();
+        //     }
+        //   }).init();
+        // });
 
         
         // INITIALIZATION OF MASKED INPUT
         // =======================================================
-        $('.js-masked-input').each(function () {
-          var mask = $.HSCore.components.HSMask.init($(this));
-        });
+        // $('.js-masked-input').each(function () {
+        //   var mask = $.HSCore.components.HSMask.init($(this));
+        // });
 
         
         // INITIALIZATION OF SELECT2
         // =======================================================
-        $('.js-select2-custom').each(function () {
-          var select2 = $.HSCore.components.HSSelect2.init($(this));
-        });
+        // $('.js-select2-custom').each(function () {
+        //   var select2 = $.HSCore.components.HSSelect2.init($(this));
+        // });
 
         
         // INITIALIZATION OF ADD INPUT FILED
         // =======================================================
-        $('.js-add-field').each(function () {
-          new HSAddField($(this), {
-            addedField: function() {
-              $('.js-add-field .js-select2-custom-dynamic').each(function () {
-                var select2dynamic = $.HSCore.components.HSSelect2.init($(this));
-              });
-            }
-          }).init();
-        });
+        // $('.js-add-field').each(function () {
+        //   new HSAddField($(this), {
+        //     addedField: function() {
+        //       $('.js-add-field .js-select2-custom-dynamic').each(function () {
+        //         var select2dynamic = $.HSCore.components.HSSelect2.init($(this));
+        //       });
+        //     }
+        //   }).init();
+        // });
       });
     </script>
   </body>
