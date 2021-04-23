@@ -65,9 +65,9 @@ function calculateShift(time) {
     let minutes = time.substring(2, 4);
     let seconds = time.substring(4, 6);
     time = parseInt(hours + minutes + seconds);
-    if (time <= 122959) return 1;
-    else if (time <= 185959) return 2;
-    else if (time <= 233459) return 3;
+    if (time <= 122959) return 0;
+    else if (time <= 185959) return 1;
+    else if (time <= 233459) return 2;
     else return -1;
 }
 

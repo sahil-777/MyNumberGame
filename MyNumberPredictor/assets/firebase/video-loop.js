@@ -7,7 +7,6 @@ function checkLockStatus() {
         showFailError()
         return
     }
-
     firebase.database().ref(`Teqmo/Stores/${UID}/screens/${screenID}/lockStatus`).once('value', (snapshot) => {
         var status = snapshot.val()
         if (status == 0) {
