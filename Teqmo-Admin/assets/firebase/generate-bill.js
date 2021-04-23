@@ -51,9 +51,8 @@ async function listUnbilledweeks() {
 
 function generateBillForAllStores() {
     let weekNum = getWeekNumber(new Date(document.getElementById('select-week').value));
-    let commissionRate = parseInt(document.getElementById('commission-rate').value);
-    let ticketValue = parseInt(document.getElementById('ticket-value').value);
-
+    let commissionRate = document.getElementById('commission-rate').value;
+    let ticketValue = document.getElementById('ticket-value').value;
     if (!weekNum) {
         Swal.fire({
             icon: 'error',
@@ -64,7 +63,22 @@ function generateBillForAllStores() {
             icon: 'error',
             text: 'Please, Enter commission rate',
         })
+    } else if (!ticketValue) {
+        Swal.fire({
+            icon: 'error',
+            text: 'Please, Enter Ticket Value',
+        })
     }
+    else if(commissionRate.includes('.') || parseInt(commissionRate)<0 || parseInt(commissionRate)>100){
+        Swal.fire({
+            icon: 'error',
+            text: 'Please, Enter value between 0 to 100 without decimal point',
+        })
+    }
+
+    commissionRate = parseInt(commissionRate);
+    ticketValue = parseFloat(ticketValue);
+
 
     savecommissionRate(weekNum, commissionRate);
 
